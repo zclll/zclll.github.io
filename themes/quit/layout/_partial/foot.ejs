@@ -1,0 +1,17 @@
+<%- css('css/food.css') %>
+<div class="footer">
+	<div class="Copyright">
+		©<%= new Date().getFullYear() %> By <%- theme.author %>.
+	</div>
+	<div class="contact">
+		<% theme.bottomIcon.forEach(item =>{%>
+		<a href="<%= item.toUrl %>">
+			<img src="<%= item.iconLink %>" alt="">
+		</a>
+		<% }) %>
+	</div>
+</div>
+<%- partial('_widget/gotop') %>
+<script>
+
+</script>
