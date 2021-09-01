@@ -8,7 +8,7 @@ author: Z
 home_describe: 一个程序员的自我修养
 # 网站关键字
 keyword: 前端
-is_article_img: false  #false是否开启文章背景图显示(随机图片)
+is_article_img: true  #false是否开启文章背景图显示(随机图片)
 # 网站描述
 web_description: 前端学习与探索
 # 导航名称
