@@ -1,5 +1,6 @@
 ---
 title: javascript - 基础(this指向)
+categories: javascript基础
 tags:
   - javascript
 date: 2018-07-01
@@ -202,5 +203,3 @@ obj.f() // 2
 3. this简单判断依据（**谁调用则this指向谁**）
 4. **严格**模式下全局调用函数this不默认指向window而是undefined
 5. **类**中定义的方法中默认会开启严格模式
-
-> 借鉴 [阮一峰](https://www.ruanyifeng.com/blog/2018/06/javascript-this.html)
