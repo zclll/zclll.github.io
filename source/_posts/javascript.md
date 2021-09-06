@@ -9,10 +9,10 @@ cover: /image/md-image/javascript.jpg
 
 ### js 的默认 this 指向
 
-在浏览器中非严格模式 this 默认指向 `window` 或者 `self` 或者 `freams` 或者 `globalThis`
+在浏览器中非严格模式 this 默认指向 `window` 或者 `self` 或者 `frames` 或者 `globalThis`
 
 ```javascript
-((window === self) === freams) === globalThis;
+window === self === frames === globalThis;
 ```
 
 在 nodejs 中非严格模式 this 默认指向 `global` 或者 `globalThis`
