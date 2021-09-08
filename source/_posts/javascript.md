@@ -4,7 +4,7 @@ categories: javascript基础
 tags:
   - javascript
 date: 2018-07-01
-cover: /image/md-image/javascript.jpg
+cover: /image/cover/javascript.jpg
 ---
 
 ### js 的默认 this 指向

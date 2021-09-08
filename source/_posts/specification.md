@@ -5,7 +5,7 @@ tags:
   - javascript
 excerpt: 代码书写规范
 date: 2018-06-03 20:33:36
-cover: /image/md-image/javascript.jpg
+cover: /image/cover/javascript.jpg
 ---
 
 

@@ -5,7 +5,7 @@ tags:
   - python
   - 机器学习
 date: 2021-8-20 20:33:36
-cover: /image/ai.jpg
+cover: /image/cover/ai.jpg
 ---
 
 
