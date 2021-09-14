@@ -1,5 +1,5 @@
 ---
-title: sk-learn 科学计算
+title: sk-learn
 tags:
   - sk-learn
   - python
@@ -43,6 +43,13 @@ pip3 install sciket-learn
 
 #如果你是 Windows 用户, 你也可以选择使用 Anaconda 来安装所有 python 的科学计算模块. Anaconda的相关资料在这
 ```
+
+#### sk-learn 工作流程
+
+1. 实例化要使用的特定机器学习模型
+2. 使模型适合训练数据
+3. 使用模型进行预测
+4. 评估预测的准确性
 
 #### sk-learn 数据集分割
 

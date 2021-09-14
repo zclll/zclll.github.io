@@ -196,6 +196,21 @@ obj.f() // 2
 ![函数调用](/image/md-image/func2.png "函数调用内存指向")
 回到本文开头提出的问题，obj.foo()是通过obj找到foo，所以就是在obj环境执行。一旦var foo = obj.foo，变量foo就直接指向函数本身，所以foo()就变成在全局环境执行。
 
+#### 改变this指向的方法
+
+1. function.call(thisArg, arg1, arg2, ...)
+    - thisArg: 可选的。在 function 函数运行时使用的 this 值。请注意，this可能不是该方法看到的实际值：如果这个函数处于非严格模式下，则指定为 null 或 undefined 时会自动替换为指向全局对象，原始值会被包装。
+    - arg1, arg2, ...: 指定的参数列表
+
+2. function.apply(thisArg, [argsArray])
+    - this.arg: 可选的。在 function 函数运行时使用的 this 值。请注意，this可能不是该方法看到的实际值：如果这个函数处于非严格模式下，则指定为 null 或 undefined 时会自动替换为指向全局对象，原始值会被包装。
+    - argsArray: 可选的。一个数组或者类数组对象，其中的数组元素将作为单独的参数传给 func 函数。如果该参数的值为 null 或  undefined，则表示不需要传入任何参数。从ECMAScript 5 开始可以使用类数组对象。
+3. function.bind(thisArg,arg1, arg2, ...)
+    - thisArg: 调用绑定函数时作为 this 参数传递给目标函数的值。 如果使用new运算符构造绑定函数，则忽略该值。当使用 bind 在 setTimeout 中创建一个函数
+      （作为回调提供）时，作为 thisArg 传递的任何原始值都将转换为 object。如果 bind 函数的参数列表为空，或者thisArg是null或undefined，执行作用域的 this 将被视为新函数的 thisArg
+    - arg1, arg2, ...: 当目标函数被调用时，被预置入绑定函数的参数列表中的参数。
+    - bind的多次绑定只有第一次是有效的且不会执行函数
+
 ### 总结
 
 1. this 的指向 是在执行上下文时才确定的, 并且确定后不可更改；

@@ -1,6 +1,6 @@
 ---
 title: python 基础库
-categories: python 学习
+categories: python 库
 tags: 
     - python
 cover: image/cover/python.png
