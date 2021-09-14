@@ -128,9 +128,9 @@ cover: /image/cover/javascript.jpg
             if(!cb.apply(_arg, [_arr[i], i, _arr])){
                 continue;
             }
-            return false
+            return true
         }
-        return true
+        return false
     }
     ```
 
