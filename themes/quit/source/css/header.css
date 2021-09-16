@@ -9,7 +9,7 @@
     opacity: 1 !important;
 }
 
-.my-custom-title:hover #my-custom-content{
+.my-custom-title:hover .my-custom-wra{
     opacity: 1 !important;
     transform:translateY(0) !important;
 }

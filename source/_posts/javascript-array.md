@@ -1,6 +1,6 @@
 ---
 title: javascript - 基础(Array对象)
-categories: javascript
+categories: javascript基础
 tags:
     - javascript
     - Array
