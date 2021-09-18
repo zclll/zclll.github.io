@@ -33,3 +33,12 @@ Pearson 相关系数是用**协方差*****除以***两个变量的**标准差**�
 
 #### 相似患者模型流程
 
+1. 相似患者模型流程
+
+![相似患者模型流程](/image/similar-model/process.png "相似患者模型流程")
+2. 相似患者模型
+
+![相似患者模型](/image/similar-model/similar-model.jpg "相似患者模型")
+3. 相似患者功能
+
+![相似患者功能](/image/similar-model/function.png "相似患者功能")
