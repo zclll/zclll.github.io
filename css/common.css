@@ -1,0 +1,38 @@
+.scrollbar::-webkit-scrollbar {
+	display: none; /* Chrome Safari */
+}
+
+.scrollbar {
+	scrollbar-width: none; /* firefox */
+	-ms-overflow-style: none; /* IE 10+ */
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.my-custom-wra {
+	max-height: 600px;
+	position: absolute;
+	top: 100%;
+	width: 80%;
+	background: white;
+	opacity: 0;
+	transform: translateY(-100%);
+	transition: all 1s;
+	overflow: hidden scroll;
+}
+
+.my-custom-inp {
+	width: 80%;
+	outline: none;
+	height: 35%;
+	border: 1px solid #eee;
+	border-radius: 30px;
+	padding-left: 15px;
+	opacity: 0;
+	transition: all 1s;
+}
+
+#my-custom-content{
+  width: 100%;
+  transition: all 0.1s;
+}
