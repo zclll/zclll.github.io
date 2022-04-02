@@ -52,3 +52,23 @@ setTimeout(_=>console.log("s2"),0)
 p.then(_=>console.log("p3"))
 // 执行顺序 executor => 1 => p3 => dom渲染 => s2
 ```
+
+### Promise 方法
+
+#### Promise.all([])
+
+该方法接收一个Promise数组返回一个Promise，只有**当该数组中的所有Promise完成**后才会由pendding状态变为resolve**执行then**里面的回调函数，若数组中有**任意一个或多个promise被拒绝**则会执行**失败回调**，catch方法会捕获到首个被执行的 reject函数。该方法获得的成功结果的数组里面的数据顺序和接收到的promise数组顺序是一致的。
+
+#### Promise.any([])
+
+当传入的promise数组中有**任意一个完成时就会终止**，会忽略到所有被拒绝掉的promise，直到第一个promise完成。若传入**所有的promise被拒绝则会执行拒绝回调**。
+
+#### Promise.race([])
+
+当promise数组中任意一个promise被拒绝或者成功，则会**采用第一个promise作为他的返回值**。若为成功的执行then，若失败则执行catch。
+
+#### Promise.allSettled([])
+
+当给定的promise数组中的所有promise被拒绝后会返回一个拒绝的promise数组，与[]一一对应。
+一旦所指定的 promises 集合中每一个 promise 已经完成，无论是成功的达成或被拒绝，未决议的 Promise将被异步完成。那时，所返回的 **promise 的处理器将传入一个数组作为输入，该数组包含原始 promises 集中每个 promise 的结果。**
+对于**每个结果对象，都有一个 status 字符串**。如果它的值为 fulfilled，则结果对象上存在一个 value 。如果值为 rejected，则存在一个 reason 。value（或 reason ）反映了每个 promise 决议（或拒绝）的值。
