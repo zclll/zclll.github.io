@@ -35,10 +35,10 @@ icon: /image/favicon.ico
 # 每个页面上面的图表
 topIcon:
   homeIcon: "/image/logo.png"
-  archivesIcon: "https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imgicon-remixicon.svg"
-  tagIcon: "https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imgtags.svg"
-  linksIcon: "https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imga20r7-cftji.svg"
-  categoriesIcon: "https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imgblogmyCategory.svg"
+  archivesIcon: "/image/article.png"
+  tagIcon: "/image/label.png"
+  linksIcon: "/image/header.jpeg"
+  categoriesIcon: "/image/classification.png"
   
 # 标签页显示多少个标签
 tagsNum: 1000
