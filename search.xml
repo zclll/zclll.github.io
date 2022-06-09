@@ -228,6 +228,8 @@
             
             <tag> Array </tag>
             
+            <tag> 数组的特殊用法 </tag>
+            
             <tag> 发布订阅 </tag>
             
         </tags>
@@ -254,6 +256,35 @@
         <tags>
             
             <tag> 前端设计 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>javascript - 基础(Array对象)实现队列</title>
+      <link href="/2019/10/06/javascript-array1/"/>
+      <url>/2019/10/06/javascript-array1/</url>
+      
+        <content type="html"><![CDATA[<h2 id="数组的特殊用法-队列"><a href="#数组的特殊用法-队列" class="headerlink" title="数组的特殊用法 - 队列"></a>数组的特殊用法 - 队列</h2><h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><ol><li><p>定义一个lazyMan函数</p></li><li><p>实现以下方法</p> <figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">         <br><span class="hljs-number">1.</span><br>lazyMan(<span class="hljs-string">&quot;hank&quot;</span>)<br>“!,my name is hank” <span class="hljs-comment">//打印</span><br>lazyMan(<span class="hljs-string">&quot;hank&quot;</span>).sleep(<span class="hljs-number">10</span>).eat(<span class="hljs-string">&quot;apple&quot;</span>)<br>         <br><span class="hljs-number">2.</span><br>lazyMan(<span class="hljs-string">&quot;hank&quot;</span>).sleep(<span class="hljs-number">10</span>).eat(<span class="hljs-string">&quot;apple&quot;</span>)<br>“!,my name is hank” <span class="hljs-comment">//打印</span><br><span class="hljs-comment">// wating 10s</span><br><span class="hljs-string">&quot;sleep after 10s&quot;</span> <span class="hljs-comment">//打印</span><br><span class="hljs-string">&quot;eat apple&quot;</span> <span class="hljs-comment">//打印</span><br>         <br><span class="hljs-number">3.</span><br>lazyMan(<span class="hljs-string">&quot;hank&quot;</span>).eat(<span class="hljs-string">&quot;apple&quot;</span>).eat(<span class="hljs-string">&quot;food&quot;</span>)<br>“!,my name is hank” <span class="hljs-comment">//打印</span><br><span class="hljs-string">&quot;eat apple&quot;</span> <span class="hljs-comment">//打印</span><br><span class="hljs-string">&quot;eat food&quot;</span> <span class="hljs-comment">//打印</span><br>         <br><span class="hljs-number">4.</span><br>lazyMan(<span class="hljs-string">&quot;hank&quot;</span>).sleepFirst(<span class="hljs-number">5</span>).eat(<span class="hljs-string">&quot;apple&quot;</span>)<br><span class="hljs-comment">// wating 5s</span><br><span class="hljs-string">&quot;sleep after 5s&quot;</span><br>“!,my name is hank”, <span class="hljs-comment">//打印</span><br><span class="hljs-string">&quot;eat apple&quot;</span> <span class="hljs-comment">//打印</span><br>        <br></code></pre></td></tr></table></figure></li></ol><h3 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h3><ol><li>为了函数调用后可以持续调用函数，函数调用后返回一个api对象保证链式调用</li><li>将所有函数执行保存在一个数组当中</li><li>从数组中弹出第一项并执行</li><li>在每一次函数调用结束后再从数组中弹出第一项的函数执行</li><li>直到数组项弹出undefind为止</li></ol><h3 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">lazyMan</span>(<span class="hljs-params">name</span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> theQueue = [];<br>    <span class="hljs-keyword">const</span> next = <span class="hljs-function">() =&gt;</span> &#123;<br>        <span class="hljs-keyword">const</span> fn = theQueue.shift();<br>        fn &amp;&amp; fn()<br>    &#125;;<br><br>    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> next(), <span class="hljs-number">0</span>);<br><br>    theQueue.push(<span class="hljs-function">() =&gt;</span> &#123;<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;!,my name is&quot;</span> + name);<br>        next();<br>    &#125;);<br><br>    <span class="hljs-keyword">const</span> api = &#123;<br>        <span class="hljs-function"><span class="hljs-title">sleep</span>(<span class="hljs-params">number</span>)</span> &#123;<br>            theQueue.push(<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;sleep after &quot;</span> + number + <span class="hljs-string">&quot;s&quot;</span>);<br>                next()<br>            &#125;, number * <span class="hljs-number">1000</span>));<br>            <span class="hljs-keyword">return</span> api;<br>        &#125;,<br>        <span class="hljs-function"><span class="hljs-title">eat</span>(<span class="hljs-params">content</span>)</span> &#123;<br>            theQueue.push(<span class="hljs-function">() =&gt;</span> &#123;<br>                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;eat &quot;</span> + content);<br>                next();<br>            &#125;);<br>            <span class="hljs-keyword">return</span> api;<br>        &#125;,<br>        <span class="hljs-function"><span class="hljs-title">sleepFirst</span>(<span class="hljs-params">number</span>)</span> &#123;<br>            theQueue.unshift(<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;sleep after&quot;</span> + number + <span class="hljs-string">&quot;s&quot;</span>);<br>                next()<br>            &#125;, number * <span class="hljs-number">1000</span>));<br>            <span class="hljs-keyword">return</span> api;<br>        &#125;,<br>    &#125;;<br><br>    <span class="hljs-keyword">return</span> api;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> javascript基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> javascript </tag>
+            
+            <tag> Array </tag>
+            
+            <tag> 数组的特殊用法 </tag>
             
         </tags>
       

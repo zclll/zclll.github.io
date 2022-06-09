@@ -3,14 +3,14 @@
 
 	<head>
 		
-<title>javascript基础知识-Z</title>
+<title>javascript - 基础(Array对象)实现队列-Z</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
 
 
-<meta name="keywords" content="javascript,">
+<meta name="keywords" content="javascript,Array,数组的特殊用法,">
 <meta name="description" content="">
 
 
@@ -254,9 +254,13 @@
             
             <li><a href="/tags/javascript">javascript</a></li>
             
+            <li><a href="/tags/Array">Array</a></li>
+            
+            <li><a href="/tags/数组的特殊用法">数组的特殊用法</a></li>
+            
             
         </ul>
-        <h1>javascript基础知识</h1>
+        <h1>javascript - 基础(Array对象)实现队列</h1>
         <div class="article-info">
             <div class="article-author">
                 
@@ -268,58 +272,27 @@
                 </svg>
                 
                 <span> <a href="">Z</a></span>
-                <p>2019-04-05 00:00:00</p>
+                <p>2019-10-06 00:00:00</p>
             </div>
         </div>
     </div>
 </div>
 <div class="article-content">
     <div id="article" class="content">
-        <h2 id="数据类型和语法"><a href="#数据类型和语法" class="headerlink" title="数据类型和语法"></a>数据类型和语法</h2><h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><ul>
-<li>七种基本数据类型<ol>
-<li>布尔值(Boolean),有两个值分别为：<code>true</code>和<code>false</code></li>
-<li>null,一个表明null值的关键字，JavaScript 是大小写敏感的，因此null 与 Null、NULL或变体完全不同。</li>
-<li>undefined, 和null一样的特殊关键字，undefined表示变量未赋值时的属性 </li>
-<li>数字（Number），整数或浮点数，例如： 42 或者 3.14159。</li>
-<li>任意精度的整数 (BigInt) ，可以安全地存储和操作大整数，甚至可以超过数字的安全整数限制。</li>
-<li>字符串（String），字符串是一串表示文本值的字符序列，例如：”Howdy” 。</li>
-<li>代表（Symbol） ( 在 ECMAScript 6 中新添加的类型).。一种实例是唯一且不可改变的数据类型。</li>
+        <h2 id="数组的特殊用法-队列"><a href="#数组的特殊用法-队列" class="headerlink" title="数组的特殊用法 - 队列"></a>数组的特殊用法 - 队列</h2><h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><ol>
+<li><p>定义一个lazyMan函数</p>
+</li>
+<li><p>实现以下方法</p>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">         <br><span class="hljs-number">1.</span><br>lazyMan(<span class="hljs-string">&quot;hank&quot;</span>)<br>“!,my name is hank” <span class="hljs-comment">//打印</span><br>lazyMan(<span class="hljs-string">&quot;hank&quot;</span>).sleep(<span class="hljs-number">10</span>).eat(<span class="hljs-string">&quot;apple&quot;</span>)<br>         <br><span class="hljs-number">2.</span><br>lazyMan(<span class="hljs-string">&quot;hank&quot;</span>).sleep(<span class="hljs-number">10</span>).eat(<span class="hljs-string">&quot;apple&quot;</span>)<br>“!,my name is hank” <span class="hljs-comment">//打印</span><br><span class="hljs-comment">// wating 10s</span><br><span class="hljs-string">&quot;sleep after 10s&quot;</span> <span class="hljs-comment">//打印</span><br><span class="hljs-string">&quot;eat apple&quot;</span> <span class="hljs-comment">//打印</span><br>         <br><span class="hljs-number">3.</span><br>lazyMan(<span class="hljs-string">&quot;hank&quot;</span>).eat(<span class="hljs-string">&quot;apple&quot;</span>).eat(<span class="hljs-string">&quot;food&quot;</span>)<br>“!,my name is hank” <span class="hljs-comment">//打印</span><br><span class="hljs-string">&quot;eat apple&quot;</span> <span class="hljs-comment">//打印</span><br><span class="hljs-string">&quot;eat food&quot;</span> <span class="hljs-comment">//打印</span><br>         <br><span class="hljs-number">4.</span><br>lazyMan(<span class="hljs-string">&quot;hank&quot;</span>).sleepFirst(<span class="hljs-number">5</span>).eat(<span class="hljs-string">&quot;apple&quot;</span>)<br><span class="hljs-comment">// wating 5s</span><br><span class="hljs-string">&quot;sleep after 5s&quot;</span><br>“!,my name is hank”, <span class="hljs-comment">//打印</span><br><span class="hljs-string">&quot;eat apple&quot;</span> <span class="hljs-comment">//打印</span><br>        <br></code></pre></td></tr></table></figure></li>
 </ol>
-</li>
-<li>对象(Object)</li>
-</ul>
-<h3 id="数字转换为字符串"><a href="#数字转换为字符串" class="headerlink" title="数字转换为字符串"></a>数字转换为字符串</h3><ol>
-<li><p>在包含的数字和字符串的表达式中使用加法运算符（+），JavaScript 会把数字转换成字符串。</p>
- <figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">x = <span class="hljs-string">&quot;The answer is &quot;</span> + <span class="hljs-number">42</span> <span class="hljs-comment">// &quot;The answer is 42&quot;</span><br>y = <span class="hljs-number">42</span> + <span class="hljs-string">&quot; is the answer&quot;</span> <span class="hljs-comment">// &quot;42 is the answer&quot;</span><br></code></pre></td></tr></table></figure></li>
-<li><p>在涉及其它运算符（译注：如下面的减号’-‘）时，JavaScript语言不会把数字变为字符串。</p>
- <figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-string">&quot;37&quot;</span> - <span class="hljs-number">7</span> <span class="hljs-comment">// 30</span><br><span class="hljs-string">&quot;37&quot;</span> + <span class="hljs-number">7</span> <span class="hljs-comment">// &quot;377&quot;</span><br></code></pre></td></tr></table></figure></li>
-<li><p>parseInt 方法只能返回整数，所以使用它会丢失小数部分。另外，调用 parseInt 时最好总是带上进制(radix) 参数，这个参数用于指定使用哪一种进制。将字符串转换为数字的另一种方法是使用一元加法运算符。</p>
- <figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-built_in">parseInt</span>(<span class="hljs-string">&quot;66a&quot;</span>) <span class="hljs-comment">// 66</span><br><span class="hljs-built_in">parseInt</span>(<span class="hljs-string">&quot;66&quot;</span>, <span class="hljs-number">8</span>) <span class="hljs-comment">// 54 以8进制66解析为10进制的54</span><br><span class="hljs-built_in">parseInt</span>(<span class="hljs-string">&quot;66&quot;</span>, <span class="hljs-number">2</span>) <span class="hljs-comment">// NaN</span><br>(<span class="hljs-number">54</span>).toString(<span class="hljs-number">8</span>) <span class="hljs-comment">// 66 10进制的54解析为8进制的66</span><br><span class="hljs-string">&quot;54&quot;</span>.toString(<span class="hljs-number">8</span>) <span class="hljs-comment">// 54 字符串则不会进制转换</span><br><br><span class="hljs-comment">// 一元加法运算符字符串转数字</span><br><span class="hljs-string">&quot;1.1&quot;</span> + <span class="hljs-string">&quot;1.1&quot;</span> = <span class="hljs-string">&quot;1.11.1&quot;</span><br>(+<span class="hljs-string">&quot;1.1&quot;</span>) + (+<span class="hljs-string">&quot;1.1&quot;</span>) = <span class="hljs-number">2.2</span><br><span class="hljs-comment">// 注意：加入括号为清楚起见，不是必需的。</span><br></code></pre></td></tr></table></figure></li>
+<h3 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h3><ol>
+<li>为了函数调用后可以持续调用函数，函数调用后返回一个api对象保证链式调用</li>
+<li>将所有函数执行保存在一个数组当中</li>
+<li>从数组中弹出第一项并执行</li>
+<li>在每一次函数调用结束后再从数组中弹出第一项的函数执行</li>
+<li>直到数组项弹出undefind为止</li>
 </ol>
-<h2 id="流程控制与错误处理"><a href="#流程控制与错误处理" class="headerlink" title="流程控制与错误处理"></a>流程控制与错误处理</h2><h3 id="if…else…语句"><a href="#if…else…语句" class="headerlink" title="if…else…语句"></a>if…else…语句</h3><ol>
-<li><p>if 条件错误的值（也被叫做Falsy值）</p>
-<ul>
-<li>false</li>
-<li>undefined</li>
-<li>null</li>
-<li>0</li>
-<li>NaN</li>
-<li>空字符串（””） </li>
-</ul>
-<p> <em><strong>注意不报括（”   “中间有空格）当传递给条件语句所有其他的值，包括所有对象会被计算为真 。</strong></em></p>
-</li>
-<li><p>请不要混淆原始的布尔值true和false 与 Boolean对象的真和假。例如：</p>
- <figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> b = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Boolean</span>(<span class="hljs-literal">false</span>);<br><span class="hljs-keyword">if</span> (b) <span class="hljs-comment">//结果视为真</span><br><span class="hljs-keyword">if</span> (b == <span class="hljs-literal">true</span>) <span class="hljs-comment">// 结果视为假</span><br></code></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="try…catch…finally…-语句"><a href="#try…catch…finally…-语句" class="headerlink" title="try…catch…finally… 语句"></a>try…catch…finally… 语句</h3><ol>
-<li><p>简介</p>
-<p> 如果你在try代码块中的代码如果没有执行成功，那么你希望将执行流程转入catch代码块。如果try代码块中的语句（或者try 代码块中调用的方法）一旦抛出了异常，那么执行流程会立即进入catch 代码块。如果try代码块没有抛出异常，catch代码块就会被跳过。finally 代码块总会紧跟在try和catch代码块之后执行，但会在try和catch代码块之后的其他代码之前执行。</p>
-</li>
-<li><p>catch 块<br> 可以用这个标识符来获取抛出的异常信息。在插入throw块时JavaScript创建这个标识符；标识符只存在于catch块的存续期间里；当catch块执行完成时，标识符不再可用。</p>
-</li>
-<li><p>finally块<br>finally块包含了在try和catch块完成后、下面接着try…catch的语句之前执行的语句。finally块无论是否抛出异常都会执行。如果抛出了一个异常，就算没有异常处理，finally块里的语句也会执行。</p>
-</li>
-</ol>
+<h3 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">lazyMan</span>(<span class="hljs-params">name</span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> theQueue = [];<br>    <span class="hljs-keyword">const</span> next = <span class="hljs-function">() =&gt;</span> &#123;<br>        <span class="hljs-keyword">const</span> fn = theQueue.shift();<br>        fn &amp;&amp; fn()<br>    &#125;;<br><br>    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> next(), <span class="hljs-number">0</span>);<br><br>    theQueue.push(<span class="hljs-function">() =&gt;</span> &#123;<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;!,my name is&quot;</span> + name);<br>        next();<br>    &#125;);<br><br>    <span class="hljs-keyword">const</span> api = &#123;<br>        <span class="hljs-function"><span class="hljs-title">sleep</span>(<span class="hljs-params">number</span>)</span> &#123;<br>            theQueue.push(<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;sleep after &quot;</span> + number + <span class="hljs-string">&quot;s&quot;</span>);<br>                next()<br>            &#125;, number * <span class="hljs-number">1000</span>));<br>            <span class="hljs-keyword">return</span> api;<br>        &#125;,<br>        <span class="hljs-function"><span class="hljs-title">eat</span>(<span class="hljs-params">content</span>)</span> &#123;<br>            theQueue.push(<span class="hljs-function">() =&gt;</span> &#123;<br>                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;eat &quot;</span> + content);<br>                next();<br>            &#125;);<br>            <span class="hljs-keyword">return</span> api;<br>        &#125;,<br>        <span class="hljs-function"><span class="hljs-title">sleepFirst</span>(<span class="hljs-params">number</span>)</span> &#123;<br>            theQueue.unshift(<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;sleep after&quot;</span> + number + <span class="hljs-string">&quot;s&quot;</span>);<br>                next()<br>            &#125;, number * <span class="hljs-number">1000</span>));<br>            <span class="hljs-keyword">return</span> api;<br>        &#125;,<br>    &#125;;<br><br>    <span class="hljs-keyword">return</span> api;<br>&#125;<br></code></pre></td></tr></table></figure>
 
     </div>
 </div>
@@ -349,19 +322,19 @@
 </script>
 <div class="Last-Next">
     
-    <a href="/2019/10/06/javascript-array1/">
+    <a href="/2019/11/03/Lazy-loading-of-images/">
         <div class="last">
             <span>上一篇</span>
-            <p>javascript - 基础(Array对象)实现队列</p>
+            <p>图片懒加载</p>
         </div>
     </a>
     
 
     
-    <a href="/2018/10/06/javascript-array/">
+    <a href="/2019/04/05/javascript-foundation/">
         <div class="next">
             <span>下一篇</span>
-            <p>javascript - 基础(Array对象)</p>
+            <p>javascript基础知识</p>
         </div>
     </a>
     
