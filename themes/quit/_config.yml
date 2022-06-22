@@ -24,7 +24,7 @@ menus:
   home: /
   archive: /archives
   categories: /categories
-  tags: /tags
+  tags: /tags/
   # links: /links
   about: /about
   
