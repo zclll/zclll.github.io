@@ -3,7 +3,7 @@
 
 	<head>
 		
-<title>google js 规范-Z</title>
+<title>javascript基础知识-Z</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -11,7 +11,7 @@
 
 
 <meta name="keywords" content="javascript,">
-<meta name="description" content="代码书写规范">
+<meta name="description" content="">
 
 
 <script src="/js/jquery.min.js"></script>
@@ -83,7 +83,7 @@
 										
 							
 									<li>
-										<a href="/tags">
+										<a href="/tags/">
 											标签
 										</a>
 										<span class="dot"></span>
@@ -128,7 +128,7 @@
         </li>
         
         <li>
-            <a href="/tags">标签</a>
+            <a href="/tags/">标签</a>
         </li>
         
         <li>
@@ -256,7 +256,7 @@
             
             
         </ul>
-        <h1>google js 规范</h1>
+        <h1>javascript基础知识</h1>
         <div class="article-info">
             <div class="article-author">
                 
@@ -268,44 +268,58 @@
                 </svg>
                 
                 <span> <a href="">Z</a></span>
-                <p>2018-06-03 20:33:36</p>
+                <p>2019-04-05 00:00:00</p>
             </div>
         </div>
     </div>
 </div>
 <div class="article-content">
     <div id="article" class="content">
-        <h4 id="文件规范"><a href="#文件规范" class="headerlink" title="文件规范"></a>文件规范</h4><ul>
-<li>文件名必须小写但是可以含有（_或者-）但是不能含有其他的符号</li>
-<li>源文件以 UTF-8 编码</li>
-<li>制表符不用于缩进</li>
-<li>对于任何具有特殊转义序列（&#39;、&quot;、\、\b、\f、\n、\r、\t、\v）的字符，将使用该序列而不是相应的数字转义（例如\x0a、\u000a 或 \u{a}）。从不使用传统的八进制转义。</li>
-<li>对于剩余的非 ASCII 字符，使用实际的 Unicode 字符（例如 ∞）或等效的十六进制或 Unicode 转义符（例如 \u221e），仅取决于哪个使代码更易于阅读和理解。</li>
+        <h2 id="数据类型和语法"><a href="#数据类型和语法" class="headerlink" title="数据类型和语法"></a>数据类型和语法</h2><h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><ul>
+<li>七种基本数据类型<ol>
+<li>布尔值(Boolean),有两个值分别为：<code>true</code>和<code>false</code></li>
+<li>null,一个表明null值的关键字，JavaScript 是大小写敏感的，因此null 与 Null、NULL或变体完全不同。</li>
+<li>undefined, 和null一样的特殊关键字，undefined表示变量未赋值时的属性 </li>
+<li>数字（Number），整数或浮点数，例如： 42 或者 3.14159。</li>
+<li>任意精度的整数 (BigInt) ，可以安全地存储和操作大整数，甚至可以超过数字的安全整数限制。</li>
+<li>字符串（String），字符串是一串表示文本值的字符序列，例如：”Howdy” 。</li>
+<li>代表（Symbol） ( 在 ECMAScript 6 中新添加的类型).。一种实例是唯一且不可改变的数据类型。</li>
+</ol>
+</li>
+<li>对象(Object)</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 最好的方式，即使没有注释也很清晰</span><br><span class="hljs-keyword">const</span> units = <span class="hljs-string">&#x27;μs&#x27;</span>;<br><span class="hljs-comment">// 允许（后面有注释，可以清楚表达意思）：但不必要，因为 μ 是可打印字符。</span><br><span class="hljs-keyword">const</span> units = <span class="hljs-string">&#x27;\u03bcs&#x27;</span>; <span class="hljs-comment">// &#x27;μs&#x27;</span><br><span class="hljs-comment">// 很好的方式，为了清楚起见，对不可打印的字符使用转义符，并带有注释。</span><br><span class="hljs-keyword">const</span> units = <span class="hljs-string">&#x27;\ufeff&#x27;</span> + content; <span class="hljs-comment">//content 为不可打印字符，预先添加字节顺序标记。</span><br><span class="hljs-comment">// 最差的方式，没有注释，读者不知道或者不能清晰的明白这是个什么</span><br><span class="hljs-keyword">const</span> units = <span class="hljs-string">&#x27;\u03bcs&#x27;</span>;<br><span class="hljs-comment">// 永远不要因为担心某些程序可能无法正确处理非 ASCII 字符而使代码的可读性降低。</span><br></code></pre></td></tr></table></figure>
-
-<h4 id="导入文件规范"><a href="#导入文件规范" class="headerlink" title="导入文件规范"></a>导入文件规范</h4><ul>
-<li>.js 文件扩展名在导入路径中不是可选的，必须始终包含在内。这样代码更清晰</li>
-<li>不要多次导入同一个文件。这会使确定文件的总导入变得困难（同一文件下的导入应该统一在一起）</li>
-<li>仅在要在模块外部使用时才导出。未导出的模块本地符号未声明为 @private，它们的名称也不以下划线结尾。导出和模块本地符号没有规定的顺序。</li>
-<li>不要使用默认导出。导入模块必须为这些值命名，这会导致模块间命名不一致。也可以达到按需加载</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 别使用默认导出</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Foo</span> </span>&#123; ... &#125; <span class="hljs-comment">// 不好的!</span><br><br><span class="hljs-comment">// 使用命名导出:</span><br><span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Foo</span> </span>&#123; ... &#125; <span class="hljs-comment">// 推荐</span><br><br><span class="hljs-comment">// 替代样式命名导出:</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Foo</span> </span>&#123; ... &#125;<br><br><span class="hljs-keyword">export</span> &#123;Foo&#125;; <span class="hljs-comment">// 推荐</span><br></code></pre></td></tr></table></figure>
+<h3 id="数字转换为字符串"><a href="#数字转换为字符串" class="headerlink" title="数字转换为字符串"></a>数字转换为字符串</h3><ol>
+<li><p>在包含的数字和字符串的表达式中使用加法运算符（+），JavaScript 会把数字转换成字符串。</p>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">x = <span class="hljs-string">&quot;The answer is &quot;</span> + <span class="hljs-number">42</span> <span class="hljs-comment">// &quot;The answer is 42&quot;</span><br>y = <span class="hljs-number">42</span> + <span class="hljs-string">&quot; is the answer&quot;</span> <span class="hljs-comment">// &quot;42 is the answer&quot;</span><br></code></pre></td></tr></table></figure></li>
+<li><p>在涉及其它运算符（译注：如下面的减号’-‘）时，JavaScript语言不会把数字变为字符串。</p>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-string">&quot;37&quot;</span> - <span class="hljs-number">7</span> <span class="hljs-comment">// 30</span><br><span class="hljs-string">&quot;37&quot;</span> + <span class="hljs-number">7</span> <span class="hljs-comment">// &quot;377&quot;</span><br></code></pre></td></tr></table></figure></li>
+<li><p>parseInt 方法只能返回整数，所以使用它会丢失小数部分。另外，调用 parseInt 时最好总是带上进制(radix) 参数，这个参数用于指定使用哪一种进制。将字符串转换为数字的另一种方法是使用一元加法运算符。</p>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-built_in">parseInt</span>(<span class="hljs-string">&quot;66a&quot;</span>) <span class="hljs-comment">// 66</span><br><span class="hljs-built_in">parseInt</span>(<span class="hljs-string">&quot;66&quot;</span>, <span class="hljs-number">8</span>) <span class="hljs-comment">// 54 以8进制66解析为10进制的54</span><br><span class="hljs-built_in">parseInt</span>(<span class="hljs-string">&quot;66&quot;</span>, <span class="hljs-number">2</span>) <span class="hljs-comment">// NaN</span><br>(<span class="hljs-number">54</span>).toString(<span class="hljs-number">8</span>) <span class="hljs-comment">// 66 10进制的54解析为8进制的66</span><br><span class="hljs-string">&quot;54&quot;</span>.toString(<span class="hljs-number">8</span>) <span class="hljs-comment">// 54 字符串则不会进制转换</span><br><br><span class="hljs-comment">// 一元加法运算符字符串转数字</span><br><span class="hljs-string">&quot;1.1&quot;</span> + <span class="hljs-string">&quot;1.1&quot;</span> = <span class="hljs-string">&quot;1.11.1&quot;</span><br>(+<span class="hljs-string">&quot;1.1&quot;</span>) + (+<span class="hljs-string">&quot;1.1&quot;</span>) = <span class="hljs-number">2.2</span><br><span class="hljs-comment">// 注意：加入括号为清楚起见，不是必需的。</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="流程控制与错误处理"><a href="#流程控制与错误处理" class="headerlink" title="流程控制与错误处理"></a>流程控制与错误处理</h2><h3 id="if…else…语句"><a href="#if…else…语句" class="headerlink" title="if…else…语句"></a>if…else…语句</h3><ol>
+<li><p>if 条件错误的值（也被叫做Falsy值）</p>
 <ul>
-<li>不要为了命名空间而导出带有静态方法或属性的容器类或对象。</li>
+<li>false</li>
+<li>undefined</li>
+<li>null</li>
+<li>0</li>
+<li>NaN</li>
+<li>空字符串（””） </li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 不好：Container 是一个导出类，只有静态方法和字段。</span><br><span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Container</span> </span>&#123;<br>  <span class="hljs-comment">/** <span class="hljs-doctag">@return <span class="hljs-type">&#123;number&#125;</span> </span>*/</span><br>  <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-title">bar</span>(<span class="hljs-params"></span>)</span> &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>  &#125;<br>&#125;<br><br><span class="hljs-comment">/** <span class="hljs-doctag">@const <span class="hljs-type">&#123;number&#125;</span> </span>*/</span><br>Container.FOO = <span class="hljs-number">1</span>;<br><br><span class="hljs-comment">// 好的方式：直接单独导出需要常量或者函数</span><br><span class="hljs-comment">/** <span class="hljs-doctag">@return <span class="hljs-type">&#123;number&#125;</span> </span>*/</span><br><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">bar</span>(<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>&#125;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-comment">/** number */</span> FOO = <span class="hljs-number">1</span>;<br><br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>不得在模块初始化之外更改导出的变量。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 不好的: foo 和 mutateFoo 都被导出和变异</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> <span class="hljs-comment">/** number */</span> foo = <span class="hljs-number">0</span>;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Mutates foo.</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mutateFoo</span>(<span class="hljs-params"></span>) </span>&#123;<br>  ++foo;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;function(number): number&#125;</span> <span class="hljs-variable">newMutateFoo</span></span></span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setMutateFoo</span>(<span class="hljs-params">newMutateFoo</span>) </span>&#123;<br>  <span class="hljs-comment">// 导出的类和函数可以变异!</span><br>  mutateFoo = <span class="hljs-function">() =&gt;</span> &#123;<br>    foo = newMutateFoo(foo);<br>  &#125;;<br>&#125;<br><br>----------------------------------------------------<br><span class="hljs-comment">// 好的方法：给foo一个getter函数，给mutateFooFunc一个包装</span><br><span class="hljs-keyword">let</span> <span class="hljs-comment">/** number */</span> foo = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">let</span> <span class="hljs-comment">/** function(number): number */</span> mutateFooFunc = <span class="hljs-function"><span class="hljs-params">foo</span> =&gt;</span> foo + <span class="hljs-number">1</span>;<br><br><span class="hljs-comment">/** <span class="hljs-doctag">@return <span class="hljs-type">&#123;number&#125;</span> </span>*/</span><br><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getFoo</span>(<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> foo;<br>&#125;<br><br><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mutateFoo</span>(<span class="hljs-params"></span>) </span>&#123;<br>  foo = mutateFooFunc(foo);<br>&#125;<br><br><span class="hljs-comment">/** <span class="hljs-doctag">@param <span class="hljs-type">&#123;function(number): number&#125;</span> </span>mutateFoo */</span><br><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setMutateFoo</span>(<span class="hljs-params">mutateFoo</span>) </span>&#123;<br>  mutateFooFunc = mutateFoo;<br>&#125;<br><br></code></pre></td></tr></table></figure>
-
-<ul>
-<li><code>export from</code> 语句不能换行</li>
-<li>不要在模块中创建循环比如（在a模块中引入b，又在b模块中引入a），即使ECMAScript允许这样的语法</li>
-<li>一个<strong>没有else</strong>且<strong>语句可以放在一行</strong>的if ，当它提高可读性时，可以保留在没有大括号的一行中。</li>
-</ul>
+<p> <em><strong>注意不报括（”   “中间有空格）当传递给条件语句所有其他的值，包括所有对象会被计算为真 。</strong></em></p>
+</li>
+<li><p>请不要混淆原始的布尔值true和false 与 Boolean对象的真和假。例如：</p>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> b = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Boolean</span>(<span class="hljs-literal">false</span>);<br><span class="hljs-keyword">if</span> (b) <span class="hljs-comment">//结果视为真</span><br><span class="hljs-keyword">if</span> (b == <span class="hljs-literal">true</span>) <span class="hljs-comment">// 结果视为假</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="try…catch…finally…-语句"><a href="#try…catch…finally…-语句" class="headerlink" title="try…catch…finally… 语句"></a>try…catch…finally… 语句</h3><ol>
+<li><p>简介</p>
+<p> 如果你在try代码块中的代码如果没有执行成功，那么你希望将执行流程转入catch代码块。如果try代码块中的语句（或者try 代码块中调用的方法）一旦抛出了异常，那么执行流程会立即进入catch 代码块。如果try代码块没有抛出异常，catch代码块就会被跳过。finally 代码块总会紧跟在try和catch代码块之后执行，但会在try和catch代码块之后的其他代码之前执行。</p>
+</li>
+<li><p>catch 块<br> 可以用这个标识符来获取抛出的异常信息。在插入throw块时JavaScript创建这个标识符；标识符只存在于catch块的存续期间里；当catch块执行完成时，标识符不再可用。</p>
+</li>
+<li><p>finally块<br>finally块包含了在try和catch块完成后、下面接着try…catch的语句之前执行的语句。finally块无论是否抛出异常都会执行。如果抛出了一个异常，就算没有异常处理，finally块里的语句也会执行。</p>
+</li>
+</ol>
 
     </div>
 </div>
@@ -335,14 +349,21 @@
 </script>
 <div class="Last-Next">
     
-    <a href="/2018/07/01/javascript-this/">
+    <a href="/2019/10/06/js-array1/">
         <div class="last">
             <span>上一篇</span>
-            <p>javascript - 基础(this指向)</p>
+            <p>javascript - 基础(Array对象)实现队列</p>
         </div>
     </a>
     
 
+    
+    <a href="/2018/10/06/js-array/">
+        <div class="next">
+            <span>下一篇</span>
+            <p>javascript - 基础(Array对象)</p>
+        </div>
+    </a>
     
 </div>
 		

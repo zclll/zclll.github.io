@@ -3,14 +3,15 @@
 
 	<head>
 		
-<title>文章归档-Z</title>
+<title>简单发布订阅实现-Z</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
 
-<meta name="keywords" content="前端">
-<meta name="description" content="前端学习与探索">
+
+<meta name="keywords" content="Array,数组的特殊用法,发布订阅,">
+<meta name="description" content="">
 
 
 <script src="/js/jquery.min.js"></script>
@@ -20,8 +21,13 @@
 
 	<body>
 		
+<link rel="stylesheet" href="/css/page.css">
 
-<link rel="stylesheet" href="/css/archive.css">
+
+<link rel="stylesheet" href="/css/page_cente.css">
+
+
+<link rel="stylesheet" href="/css/atom-one-dark.css">
 
 
 <link rel="stylesheet" href="/css/header.css">
@@ -58,13 +64,13 @@
 									
 										
 							
-								<li class="select">
-									<a href="/archives">
-										存档
-									</a>
-									<span class="dot"></span>
-								</li>
-								
+									<li>
+										<a href="/archives">
+											存档
+										</a>
+										<span class="dot"></span>
+									</li>
+									
 										
 							
 									<li>
@@ -77,7 +83,7 @@
 										
 							
 									<li>
-										<a href="/tags">
+										<a href="/tags/">
 											标签
 										</a>
 										<span class="dot"></span>
@@ -122,7 +128,7 @@
         </li>
         
         <li>
-            <a href="/tags">标签</a>
+            <a href="/tags/">标签</a>
         </li>
         
         <li>
@@ -241,133 +247,98 @@
 			
 <script src="/js/search.js"></script>
 
-
-<div class="header-bg">
+<div class="header-bg bg-content-img">
     <div class="bg-content">
-        <span>
-            <img src="/image/article.png" alt="Z">
-        </span>
-
-        <h2>居然用了 5 年一共才写了 16 篇文章!</h2>
+        <ul class="tag">
+            
+            
+            <li><a href="/tags/Array">Array</a></li>
+            
+            <li><a href="/tags/数组的特殊用法">数组的特殊用法</a></li>
+            
+            <li><a href="/tags/发布订阅">发布订阅</a></li>
+            
+            
+        </ul>
+        <h1>简单发布订阅实现</h1>
+        <div class="article-info">
+            <div class="article-author">
+                
+                <svg t="1604839279282" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" p-id="2901" width="20" height="20">
+                    <path
+                        d="M513 956.3c-247.7 0-448-200.3-448-448S265.3 66.2 513 66.2s448 200.3 448 448-200.3 442.1-448 442.1z m0-830.9c-212.2 0-388.8 170.7-388.8 388.8C124.2 726.3 294.9 903 513 903c212.2 0 388.8-170.7 388.8-388.8S725.2 125.4 513 125.4z m0 430.2c-94.2 0-170.7-76.5-170.7-170.7S418.8 207.8 513 207.8s170.7 76.5 170.7 170.7S607.2 555.6 513 555.6z m0-289.1c-64.6 0-112 52.8-112 112s47.4 117.9 112 117.9 112-52.8 112-112-47.4-117.9-112-117.9z m0 689.8c-135.7 0-259-58.7-341.9-158.9l-11.8-17.8 11.8-17.8c76.5-117.9 206.2-188.5 347.8-188.5 135.7 0 265 64.6 341.9 182.6l11.8 17.8-11.8 17.8C778 897.1 648.7 956.3 513 956.3zM230.3 773.2C300.9 849.7 406.9 897 513 897c112 0 218.1-47.4 288.6-129.8-70.5-88.2-170.7-135.6-282.7-135.6s-218.1 53.3-288.6 141.6z"
+                        p-id="2902" fill="#ffffff"></path>
+                </svg>
+                
+                <span> <a href="">Z</a></span>
+                <p>2020-06-03 00:00:00</p>
+            </div>
+        </div>
     </div>
 </div>
 <div class="article-content">
     <div id="article" class="content">
-        
-        <p>
-            2022
-        </p>
-        
-        <a href="/2022/04/02/javascript-equal/">
-            <span>javascript - 基础(equal)</span>
-            <time>04-02</time>
-        </a>
-        
-        <a href="/2022/04/01/sk-learn/">
-            <span>sk-learn</span>
-            <time>04-01</time>
-        </a>
-        
-        <a href="/2022/04/01/similar-model/">
-            <span>相似模型</span>
-            <time>04-01</time>
-        </a>
-        
-        <a href="/2022/04/01/python-lib/">
-            <span>python 基础库</span>
-            <time>04-01</time>
-        </a>
-        
-        
-        <p>
-            2021
-        </p>
-        
-        <a href="/2021/10/08/python-numpy/">
-            <span>numpy</span>
-            <time>10-08</time>
-        </a>
-        
-        <a href="/2021/10/08/python-numpy-api/">
-            <span>numpy-api函数</span>
-            <time>10-08</time>
-        </a>
-        
-        <a href="/2021/08/20/ai/">
-            <span>ai 机器学习初识</span>
-            <time>08-20</time>
-        </a>
-        
-        
-        <p>
-            2020
-        </p>
-        
-        <a href="/2020/11/03/vue-(data,computed,watch)/">
-            <span>vue：watch，computed</span>
-            <time>11-03</time>
-        </a>
-        
-        <a href="/2020/06/03/releaseSubscription/">
-            <span>简单发布订阅实现</span>
-            <time>06-03</time>
-        </a>
-        
-        
-        <p>
-            2019
-        </p>
-        
-        <a href="/2019/11/03/Lazy-loading-of-images/">
-            <span>图片懒加载</span>
-            <time>11-03</time>
-        </a>
-        
-        <a href="/2019/10/06/javascript-array1/">
-            <span>javascript - 基础(Array对象)实现队列</span>
-            <time>10-06</time>
-        </a>
-        
-        <a href="/2019/04/05/javascript-foundation/">
-            <span>javascript基础知识</span>
-            <time>04-05</time>
-        </a>
-        
-        
-        <p>
-            2018
-        </p>
-        
-        <a href="/2018/10/06/javascript-array/">
-            <span>javascript - 基础(Array对象)</span>
-            <time>10-06</time>
-        </a>
-        
-        <a href="/2018/09/01/javascript-promise/">
-            <span>javascript - 基础(promise)</span>
-            <time>09-01</time>
-        </a>
-        
-        <a href="/2018/07/01/javascript-this/">
-            <span>javascript - 基础(this指向)</span>
-            <time>07-01</time>
-        </a>
-        
-        <a href="/2018/06/03/specification/">
-            <span>google js 规范</span>
-            <time>06-03</time>
-        </a>
-        
-        
+        <h2 id="任务需求"><a href="#任务需求" class="headerlink" title="任务需求"></a>任务需求</h2><ol>
+<li>eventBus.$on(type, fn) 实现对<strong>type</strong>事件的订阅</li>
+<li>eventBus.$emit(type, data) 实现对<strong>type</strong>事件的发布</li>
+<li>eventBus.$off(type) 取消对<strong>type</strong>事件的订阅</li>
+<li>eventBus.$once(type, fn) 实现对<strong>type</strong>事件只监听一次后取消监听</li>
+</ol>
+<h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><ol>
+<li><p>用一个对象对存储所有type</p>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> obj = &#123;<br>    <span class="hljs-attr">type1</span>: ...,<br>    <span class="hljs-attr">type2</span>: ....,<br>    ...<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li><p>使用数组存储一个type的所有订阅事件</p>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> obj = &#123;<br>    <span class="hljs-attr">type1</span>: [fn1, fn2, ...],<br>    <span class="hljs-attr">type2</span>: [fn1, fn2, ...],<br>    ...<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li><p>在发布事件触发时对数组里面的对应type的数组逐一调用并传递参数</p>
+</li>
+</ol>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> eventBus = &#123;<br>    <span class="hljs-attr">eventData</span>: &#123;&#125;,<br>    $on (type, fn) &#123;<br>        <span class="hljs-built_in">this</span>.eventData[type] = <span class="hljs-built_in">this</span>.eventData[type] || [];<br>        <span class="hljs-built_in">this</span>.eventData[type].push(fn);<br>    &#125;,<br>    $emit (type, message) &#123;<br>        <span class="hljs-built_in">this</span>.eventData[type] &amp;&amp; (<span class="hljs-built_in">this</span>.eventData[type] = <span class="hljs-built_in">this</span>.eventData[type].filter(<span class="hljs-function">(<span class="hljs-params">item, index</span>) =&gt;</span> &#123;<br>            item(message);<br>            <span class="hljs-keyword">if</span>(item.once) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>        &#125;))<br>    &#125;,<br>    $once (type, fn) &#123;<br>        <span class="hljs-built_in">this</span>.eventData[type] = <span class="hljs-built_in">this</span>.eventData[type] || [];<br>        fn.once = <span class="hljs-literal">true</span>;<br>        <span class="hljs-built_in">this</span>.eventData[type].push(fn);<br>    &#125;,<br>    $off (type) &#123;<br>        <span class="hljs-built_in">this</span>.eventData[type] = [];<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
     </div>
 </div>
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 109;
+        width: 600px !important;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
 
-
-
-
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            width: 88%
+        }
+    }
+</style>
 <script>
-    $(function () { $('.article-content').addClass('content-move'); })
+    $(function () { $('#article').click(function (e) { if (e.target.tagName == "IMG") { if ($('#nonediv').length == 0) { let MImg = `<div id='noneimg'><img src='${e.target.currentSrc}'></div>`; let MDiv = "<div id='nonediv' style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.5;z-index: 108;'></div>"; $('#article').append(MDiv); $('#article').append(MImg); $("#nonediv").fadeIn("slow"); $("#noneimg img").fadeIn("slow") } } else { if ($('#nonediv').length !== 0) { $("#noneimg ").fadeOut("slow"); $("#nonediv").fadeOut("slow"); setTimeout(function () { $('#nonediv').remove(); $('#noneimg').remove() }, 500) } } }); $('.article-content').addClass('content-move') });
 </script>
+<div class="Last-Next">
+    
+    <a href="/2020/11/03/vue-(data,computed,watch)/">
+        <div class="last">
+            <span>上一篇</span>
+            <p>vue：watch，computed</p>
+        </div>
+    </a>
+    
+
+    
+    <a href="/2019/11/03/web-Lazy-loading-of-images/">
+        <div class="next">
+            <span>下一篇</span>
+            <p>图片懒加载</p>
+        </div>
+    </a>
+    
+</div>
 		
 <link rel="stylesheet" href="/css/food.css">
 

@@ -3,14 +3,14 @@
 
 	<head>
 		
-<title>简单发布订阅实现-Z</title>
+<title>javascript - 基础(promise)-Z</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
 
 
-<meta name="keywords" content="Array,数组的特殊用法,发布订阅,">
+<meta name="keywords" content="javascript,">
 <meta name="description" content="">
 
 
@@ -83,7 +83,7 @@
 										
 							
 									<li>
-										<a href="/tags">
+										<a href="/tags/">
 											标签
 										</a>
 										<span class="dot"></span>
@@ -128,7 +128,7 @@
         </li>
         
         <li>
-            <a href="/tags">标签</a>
+            <a href="/tags/">标签</a>
         </li>
         
         <li>
@@ -252,15 +252,11 @@
         <ul class="tag">
             
             
-            <li><a href="/tags/Array">Array</a></li>
-            
-            <li><a href="/tags/数组的特殊用法">数组的特殊用法</a></li>
-            
-            <li><a href="/tags/发布订阅">发布订阅</a></li>
+            <li><a href="/tags/javascript">javascript</a></li>
             
             
         </ul>
-        <h1>简单发布订阅实现</h1>
+        <h1>javascript - 基础(promise)</h1>
         <div class="article-info">
             <div class="article-author">
                 
@@ -272,28 +268,45 @@
                 </svg>
                 
                 <span> <a href="">Z</a></span>
-                <p>2020-06-03 00:00:00</p>
+                <p>2018-09-01 00:00:00</p>
             </div>
         </div>
     </div>
 </div>
 <div class="article-content">
     <div id="article" class="content">
-        <h2 id="任务需求"><a href="#任务需求" class="headerlink" title="任务需求"></a>任务需求</h2><ol>
-<li>eventBus.$on(type, fn) 实现对<strong>type</strong>事件的订阅</li>
-<li>eventBus.$emit(type, data) 实现对<strong>type</strong>事件的发布</li>
-<li>eventBus.$off(type) 取消对<strong>type</strong>事件的订阅</li>
-<li>eventBus.$once(type, fn) 实现对<strong>type</strong>事件只监听一次后取消监听</li>
+        <h3 id="Promise-简介"><a href="#Promise-简介" class="headerlink" title="Promise 简介"></a>Promise 简介</h3><p>Promise 对象用于表示一个异步操作的最终完成 (或失败)及其结果值。<br>存在意义：<strong>异步问题同步化解决方案</strong></p>
+<h3 id="Promise-描述"><a href="#Promise-描述" class="headerlink" title="Promise 描述"></a>Promise 描述</h3><p>一个 Promise 对象代表一个在这个 promise 被创建出来时不一定已知的值。它让您能够把异步操作最终的成功返回值或者失败原因和相应的处理程序关联起来。 这样使得异步方法可以像同步方法那样返回值：异步方法并不会立即返回最终的值，而是会返回一个 <code>promise</code>，以便在未来某个时候把值交给使用者。<br>一个 Promise 必然处于以下几种状态之一：</p>
+<ul>
+<li>待定（<code>pending</code>）: 初始状态，既没有被兑现，也没有被拒绝。</li>
+<li>已兑现（<code>fulfilled</code>）: 意味着操作成功完成。</li>
+<li>已拒绝（<code>rejected</code>）: 意味着操作失败。</li>
+</ul>
+<p>待定状态的 Promise 对象要么会通过一个值被兑现（<em>fulfilled</em>），要么会通过一个原因（错误）被拒绝（<em>rejected</em>）。当这些情况之一发生时，我们用 promise 的 then 方法排列起来的相关处理程序就会被调用。如果 promise 在一个相应的处理程序被绑定时就已经被兑现或被拒绝了，那么这个处理程序就会被调用，因此在完成异步操作和绑定处理方法之间不会存在竞争状态。<br>因为 <code>Promise.prototype.then</code> 和  <code>Promise.prototype.catch</code> 方法返回的是 <code>promise</code>， 所以它们可以被链式调用。</p>
+<h3 id="Promise-运行流程"><a href="#Promise-运行流程" class="headerlink" title="Promise 运行流程"></a>Promise 运行流程</h3><ol>
+<li>executor会立即执行（同步执行）</li>
+<li>然后将任务储存在微任务中</li>
+<li>等待 构造函数中的 <code>resolve</code> 或 <code>reject</code> 执行，只有第一次执行有效，多次调用没有任何作用,如果一直<strong>没调用</strong>则永远不会触发 <code>then</code> 或者 <code>catch</code></li>
+<li>等主线程执行完成，事件循环机制(<code>Event Loop</code>)从微任务中查看状态（有可执行的微任务调出来运行 <code>then</code> 或者 <code>catch</code> ）</li>
+<li><code>then</code> 和 <code>catch</code> 会返回一个新的 <code>promise</code> 所以可以被链式调用且下一个 <code>then</code> 或者 <code>catch</code>传值为上一个 <code>then</code> 或者 <code>catch</code>函数的返回值。</li>
+<li><code>catch</code> 类似 <code>switch-case</code>的 <code>default</code> 可以用来兜底</li>
 </ol>
-<h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><ol>
-<li><p>用一个对象对存储所有type</p>
- <figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> obj = &#123;<br>    <span class="hljs-attr">type1</span>: ...,<br>    <span class="hljs-attr">type2</span>: ....,<br>    ...<br>&#125;<br></code></pre></td></tr></table></figure></li>
-<li><p>使用数组存储一个type的所有订阅事件</p>
- <figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> obj = &#123;<br>    <span class="hljs-attr">type1</span>: [fn1, fn2, ...],<br>    <span class="hljs-attr">type2</span>: [fn1, fn2, ...],<br>    ...<br>&#125;<br></code></pre></td></tr></table></figure></li>
-<li><p>在发布事件触发时对数组里面的对应type的数组逐一调用并传递参数</p>
-</li>
-</ol>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> eventBus = &#123;<br>    <span class="hljs-attr">eventData</span>: &#123;&#125;,<br>    $on (type, fn) &#123;<br>        <span class="hljs-built_in">this</span>.eventData[type] = <span class="hljs-built_in">this</span>.eventData[type] || [];<br>        <span class="hljs-built_in">this</span>.eventData[type].push(fn);<br>    &#125;,<br>    $emit (type, message) &#123;<br>        <span class="hljs-built_in">this</span>.eventData[type] &amp;&amp; (<span class="hljs-built_in">this</span>.eventData[type] = <span class="hljs-built_in">this</span>.eventData[type].filter(<span class="hljs-function">(<span class="hljs-params">item, index</span>) =&gt;</span> &#123;<br>            item(message);<br>            <span class="hljs-keyword">if</span>(item.once) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>        &#125;))<br>    &#125;,<br>    $once (type, fn) &#123;<br>        <span class="hljs-built_in">this</span>.eventData[type] = <span class="hljs-built_in">this</span>.eventData[type] || [];<br>        fn.once = <span class="hljs-literal">true</span>;<br>        <span class="hljs-built_in">this</span>.eventData[type].push(fn);<br>    &#125;,<br>    $off (type) &#123;<br>        <span class="hljs-built_in">this</span>.eventData[type] = [];<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<p><strong>宏任务与微任务</strong></p>
+<ul>
+<li>宏任务（任务队列）：setTimeout产生的队列为宏任务</li>
+<li>微任务（任务队列）：promise产生的队列为微任务</li>
+</ul>
+<blockquote>
+<p>同一时间微任务的优先级会大于微任务</p>
+<p>微任务 &gt; DOM渲染 &gt; 宏任务</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> p = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-params">r</span>=&gt;</span>&#123;<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;executor&quot;</span>); r()&#125;)<br><span class="hljs-keyword">let</span> con = <span class="hljs-string">&quot;测试&quot;</span>;<br><span class="hljs-built_in">document</span>.write(con);<br><span class="hljs-built_in">console</span>.log(<span class="hljs-number">1</span>);<br><span class="hljs-built_in">setTimeout</span>(<span class="hljs-function"><span class="hljs-params">_</span>=&gt;</span><span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;s2&quot;</span>),<span class="hljs-number">0</span>)<br>p.then(<span class="hljs-function"><span class="hljs-params">_</span>=&gt;</span><span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;p3&quot;</span>))<br><span class="hljs-comment">// 执行顺序 executor =&gt; 1 =&gt; p3 =&gt; dom渲染 =&gt; s2</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Promise-方法"><a href="#Promise-方法" class="headerlink" title="Promise 方法"></a>Promise 方法</h3><h4 id="Promise-all"><a href="#Promise-all" class="headerlink" title="Promise.all([])"></a>Promise.all([])</h4><p>该方法接收一个Promise数组返回一个Promise，只有<strong>当该数组中的所有Promise完成</strong>后才会由pendding状态变为resolve<strong>执行then</strong>里面的回调函数，若数组中有<strong>任意一个或多个promise被拒绝</strong>则会执行<strong>失败回调</strong>，catch方法会捕获到首个被执行的 reject函数。该方法获得的成功结果的数组里面的数据顺序和接收到的promise数组顺序是一致的。</p>
+<h4 id="Promise-any"><a href="#Promise-any" class="headerlink" title="Promise.any([])"></a>Promise.any([])</h4><p>当传入的promise数组中有<strong>任意一个完成时就会终止</strong>，会忽略到所有被拒绝掉的promise，直到第一个promise完成。若传入<strong>所有的promise被拒绝则会执行拒绝回调</strong>。</p>
+<h4 id="Promise-race"><a href="#Promise-race" class="headerlink" title="Promise.race([])"></a>Promise.race([])</h4><p>当promise数组中任意一个promise被拒绝或者成功，则会<strong>采用第一个promise作为他的返回值</strong>。若为成功的执行then，若失败则执行catch。</p>
+<h4 id="Promise-allSettled"><a href="#Promise-allSettled" class="headerlink" title="Promise.allSettled([])"></a>Promise.allSettled([])</h4><p>当给定的promise数组中的所有promise被拒绝后会返回一个拒绝的promise数组，与[]一一对应。<br>一旦所指定的 promises 集合中每一个 promise 已经完成，无论是成功的达成或被拒绝，未决议的 Promise将被异步完成。那时，所返回的 <strong>promise 的处理器将传入一个数组作为输入，该数组包含原始 promises 集中每个 promise 的结果。</strong><br>对于<strong>每个结果对象，都有一个 status 字符串</strong>。如果它的值为 fulfilled，则结果对象上存在一个 value 。如果值为 rejected，则存在一个 reason 。value（或 reason ）反映了每个 promise 决议（或拒绝）的值。</p>
+
     </div>
 </div>
 <style>
@@ -322,19 +335,19 @@
 </script>
 <div class="Last-Next">
     
-    <a href="/2020/11/03/vue-(data,computed,watch)/">
+    <a href="/2018/10/06/js-array/">
         <div class="last">
             <span>上一篇</span>
-            <p>vue：watch，computed</p>
+            <p>javascript - 基础(Array对象)</p>
         </div>
     </a>
     
 
     
-    <a href="/2019/11/03/Lazy-loading-of-images/">
+    <a href="/2018/07/01/js-this/">
         <div class="next">
             <span>下一篇</span>
-            <p>图片懒加载</p>
+            <p>javascript - 基础(this指向)</p>
         </div>
     </a>
     

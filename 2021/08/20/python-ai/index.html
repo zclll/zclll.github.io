@@ -3,14 +3,14 @@
 
 	<head>
 		
-<title>javascript - 基础(Array对象)实现队列-Z</title>
+<title>ai 机器学习初识-Z</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
 
 
-<meta name="keywords" content="javascript,Array,数组的特殊用法,">
+<meta name="keywords" content="python,机器学习,">
 <meta name="description" content="">
 
 
@@ -83,7 +83,7 @@
 										
 							
 									<li>
-										<a href="/tags">
+										<a href="/tags/">
 											标签
 										</a>
 										<span class="dot"></span>
@@ -128,7 +128,7 @@
         </li>
         
         <li>
-            <a href="/tags">标签</a>
+            <a href="/tags/">标签</a>
         </li>
         
         <li>
@@ -252,15 +252,13 @@
         <ul class="tag">
             
             
-            <li><a href="/tags/javascript">javascript</a></li>
+            <li><a href="/tags/python">python</a></li>
             
-            <li><a href="/tags/Array">Array</a></li>
-            
-            <li><a href="/tags/数组的特殊用法">数组的特殊用法</a></li>
+            <li><a href="/tags/机器学习">机器学习</a></li>
             
             
         </ul>
-        <h1>javascript - 基础(Array对象)实现队列</h1>
+        <h1>ai 机器学习初识</h1>
         <div class="article-info">
             <div class="article-author">
                 
@@ -272,27 +270,51 @@
                 </svg>
                 
                 <span> <a href="">Z</a></span>
-                <p>2019-10-06 00:00:00</p>
+                <p>2021-08-20 20:33:36</p>
             </div>
         </div>
     </div>
 </div>
 <div class="article-content">
     <div id="article" class="content">
-        <h2 id="数组的特殊用法-队列"><a href="#数组的特殊用法-队列" class="headerlink" title="数组的特殊用法 - 队列"></a>数组的特殊用法 - 队列</h2><h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><ol>
-<li><p>定义一个lazyMan函数</p>
+        <h4 id="机器学习流程"><a href="#机器学习流程" class="headerlink" title="机器学习流程"></a>机器学习流程</h4><ol>
+<li><p>模型选择:选择对应<strong>模型算法</strong>（例如：线性回归、逻辑回归、神经网络、决策树、支持向量机）</p>
 </li>
-<li><p>实现以下方法</p>
- <figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">         <br><span class="hljs-number">1.</span><br>lazyMan(<span class="hljs-string">&quot;hank&quot;</span>)<br>“!,my name is hank” <span class="hljs-comment">//打印</span><br>lazyMan(<span class="hljs-string">&quot;hank&quot;</span>).sleep(<span class="hljs-number">10</span>).eat(<span class="hljs-string">&quot;apple&quot;</span>)<br>         <br><span class="hljs-number">2.</span><br>lazyMan(<span class="hljs-string">&quot;hank&quot;</span>).sleep(<span class="hljs-number">10</span>).eat(<span class="hljs-string">&quot;apple&quot;</span>)<br>“!,my name is hank” <span class="hljs-comment">//打印</span><br><span class="hljs-comment">// wating 10s</span><br><span class="hljs-string">&quot;sleep after 10s&quot;</span> <span class="hljs-comment">//打印</span><br><span class="hljs-string">&quot;eat apple&quot;</span> <span class="hljs-comment">//打印</span><br>         <br><span class="hljs-number">3.</span><br>lazyMan(<span class="hljs-string">&quot;hank&quot;</span>).eat(<span class="hljs-string">&quot;apple&quot;</span>).eat(<span class="hljs-string">&quot;food&quot;</span>)<br>“!,my name is hank” <span class="hljs-comment">//打印</span><br><span class="hljs-string">&quot;eat apple&quot;</span> <span class="hljs-comment">//打印</span><br><span class="hljs-string">&quot;eat food&quot;</span> <span class="hljs-comment">//打印</span><br>         <br><span class="hljs-number">4.</span><br>lazyMan(<span class="hljs-string">&quot;hank&quot;</span>).sleepFirst(<span class="hljs-number">5</span>).eat(<span class="hljs-string">&quot;apple&quot;</span>)<br><span class="hljs-comment">// wating 5s</span><br><span class="hljs-string">&quot;sleep after 5s&quot;</span><br>“!,my name is hank”, <span class="hljs-comment">//打印</span><br><span class="hljs-string">&quot;eat apple&quot;</span> <span class="hljs-comment">//打印</span><br>        <br></code></pre></td></tr></table></figure></li>
+<li><p>模型理解:了解模型的<strong>使用场景</strong>、<strong>所需参数</strong>以及<strong>数学意义</strong></p>
+</li>
+<li><p>数据准备:为保证模型准确性需要求：1.数据足够<strong>多</strong>2.数据足够<strong>全</strong>3.数据足够<strong>权威</strong></p>
+</li>
+<li><p>轴确认:选择特征作为模型的<code>X</code>轴，选择模型需要预测的结果为<code>Y</code>轴</p>
+</li>
+<li><p>数据清洗:对数据进行<strong>分组统计</strong>，对特征值筛选（<strong>mRMR算法</strong> =&gt; 最大相关和最小冗余） 最后将<strong>特征缩放</strong></p>
+<ul>
+<li><strong>mRMR</strong>（Max-Relevance and Min-Redundancy）：在原始特征集合中找到与最终输出结果相关性最大（Max-Relevance），和特征彼此之间相关性最小的一组特征（Min-Redundancy）</li>
+<li><strong>特征缩放</strong>：用来统一资料中的自变项或特征范围的方法，特征缩放可以使机器学习算法工作的更好。</li>
+</ul>
+</li>
+<li><p>训练模型:随机选取一部分（70%） 运行模型算法（Y = kX + k₂X₂ ···）,大致算出每个特征的权重k</p>
+<ul>
+<li><strong>模型算法</strong>：例如sk-learn中的逻辑回归LogisticRegression</li>
+</ul>
+</li>
+<li><p>模型存储:存储运行后的模型公式（输入为带有这些特征的数据，输出为正的概率和为负的概率）</p>
+</li>
+<li><p>模型验证:再选另外一部分（30%） 运行模型公式，推算出<strong>tp</strong>（预测为正，实现也为正）<strong>fp</strong>（预测为负，实现为正）<strong>tn</strong>（预测为负，实现为负） <strong>fn</strong>（预测为负，实现为正）</p>
+</li>
+<li><p>根据预测的准确度经过公式推导</p>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// (精度) 精确率</span><br>P = 识别出的正确的正样本的数目 / 预测为正样本的数目<br><span class="hljs-comment">// (召回率) 或覆盖率</span><br>R = 识别出的正确的正样本的数目 / 实际为正样本的数目 <br><span class="hljs-comment">// 调和平均值</span><br>F1 是精确度和召回率的 <br>F1 = 2P×R / P+R<br><span class="hljs-comment">// 精确度和召回率都高时， F1值也会高． </span><br><span class="hljs-comment">// F1值在1时达到最佳值（完美的精确度和召回率 也就是 P = 1 ， R = 1），</span><br><span class="hljs-comment">// 最差为0．在二元分类中， F1值是测试准确度的量度。</span><br><span class="hljs-attr">TP</span>: 预测为正， 实现为正<br><span class="hljs-attr">FP</span>: 预测为正， 实现为负<br><span class="hljs-attr">FN</span>: 预测为负，实现为正<br><span class="hljs-attr">TN</span>: 预测为负， 实现为负 <br></code></pre></td></tr></table></figure></li>
+<li><p>把数据传给前端绘制对应的<strong>模型好坏ROC</strong>的曲线</p>
+</li>
+<li><p>模型预测:输入对应的特征值，使用存储的模型预测结果（输入为带有这些特征的数据，输出为正的概率和为负的概率）</p>
+</li>
 </ol>
-<h3 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h3><ol>
-<li>为了函数调用后可以持续调用函数，函数调用后返回一个api对象保证链式调用</li>
-<li>将所有函数执行保存在一个数组当中</li>
-<li>从数组中弹出第一项并执行</li>
-<li>在每一次函数调用结束后再从数组中弹出第一项的函数执行</li>
-<li>直到数组项弹出undefind为止</li>
+<h4 id="技术支持-python路线"><a href="#技术支持-python路线" class="headerlink" title="技术支持(python路线)"></a>技术支持(python路线)</h4><ol>
+<li>python 语言基础</li>
+<li>numpy (python数据处理库)</li>
+<li>pandas (python数据处理库基于numpy)</li>
+<li>sk-learn (科学计算库，机器学习基础库)</li>
+<li>tensorflow (张量)</li>
 </ol>
-<h3 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">lazyMan</span>(<span class="hljs-params">name</span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> theQueue = [];<br>    <span class="hljs-keyword">const</span> next = <span class="hljs-function">() =&gt;</span> &#123;<br>        <span class="hljs-keyword">const</span> fn = theQueue.shift();<br>        fn &amp;&amp; fn()<br>    &#125;;<br><br>    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> next(), <span class="hljs-number">0</span>);<br><br>    theQueue.push(<span class="hljs-function">() =&gt;</span> &#123;<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;!,my name is&quot;</span> + name);<br>        next();<br>    &#125;);<br><br>    <span class="hljs-keyword">const</span> api = &#123;<br>        <span class="hljs-function"><span class="hljs-title">sleep</span>(<span class="hljs-params">number</span>)</span> &#123;<br>            theQueue.push(<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;sleep after &quot;</span> + number + <span class="hljs-string">&quot;s&quot;</span>);<br>                next()<br>            &#125;, number * <span class="hljs-number">1000</span>));<br>            <span class="hljs-keyword">return</span> api;<br>        &#125;,<br>        <span class="hljs-function"><span class="hljs-title">eat</span>(<span class="hljs-params">content</span>)</span> &#123;<br>            theQueue.push(<span class="hljs-function">() =&gt;</span> &#123;<br>                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;eat &quot;</span> + content);<br>                next();<br>            &#125;);<br>            <span class="hljs-keyword">return</span> api;<br>        &#125;,<br>        <span class="hljs-function"><span class="hljs-title">sleepFirst</span>(<span class="hljs-params">number</span>)</span> &#123;<br>            theQueue.unshift(<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;sleep after&quot;</span> + number + <span class="hljs-string">&quot;s&quot;</span>);<br>                next()<br>            &#125;, number * <span class="hljs-number">1000</span>));<br>            <span class="hljs-keyword">return</span> api;<br>        &#125;,<br>    &#125;;<br><br>    <span class="hljs-keyword">return</span> api;<br>&#125;<br></code></pre></td></tr></table></figure>
 
     </div>
 </div>
@@ -322,19 +344,19 @@
 </script>
 <div class="Last-Next">
     
-    <a href="/2019/11/03/Lazy-loading-of-images/">
+    <a href="/2021/10/08/python-numpy-api/">
         <div class="last">
             <span>上一篇</span>
-            <p>图片懒加载</p>
+            <p>numpy-api函数</p>
         </div>
     </a>
     
 
     
-    <a href="/2019/04/05/javascript-foundation/">
+    <a href="/2020/11/24/js-deconstructionAssignment/">
         <div class="next">
             <span>下一篇</span>
-            <p>javascript基础知识</p>
+            <p>javascript - 随手摘要(解构赋值)</p>
         </div>
     </a>
     

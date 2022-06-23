@@ -3,7 +3,7 @@
 
 	<head>
 		
-<title>javascript基础知识-Z</title>
+<title>javascript - 随手摘要(number)-Z</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -83,7 +83,7 @@
 										
 							
 									<li>
-										<a href="/tags">
+										<a href="/tags/">
 											标签
 										</a>
 										<span class="dot"></span>
@@ -128,7 +128,7 @@
         </li>
         
         <li>
-            <a href="/tags">标签</a>
+            <a href="/tags/">标签</a>
         </li>
         
         <li>
@@ -256,7 +256,7 @@
             
             
         </ul>
-        <h1>javascript基础知识</h1>
+        <h1>javascript - 随手摘要(number)</h1>
         <div class="article-info">
             <div class="article-author">
                 
@@ -268,56 +268,71 @@
                 </svg>
                 
                 <span> <a href="">Z</a></span>
-                <p>2019-04-05 00:00:00</p>
+                <p>2020-11-22 00:00:00</p>
             </div>
         </div>
     </div>
 </div>
 <div class="article-content">
     <div id="article" class="content">
-        <h2 id="数据类型和语法"><a href="#数据类型和语法" class="headerlink" title="数据类型和语法"></a>数据类型和语法</h2><h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><ul>
-<li>七种基本数据类型<ol>
-<li>布尔值(Boolean),有两个值分别为：<code>true</code>和<code>false</code></li>
-<li>null,一个表明null值的关键字，JavaScript 是大小写敏感的，因此null 与 Null、NULL或变体完全不同。</li>
-<li>undefined, 和null一样的特殊关键字，undefined表示变量未赋值时的属性 </li>
-<li>数字（Number），整数或浮点数，例如： 42 或者 3.14159。</li>
-<li>任意精度的整数 (BigInt) ，可以安全地存储和操作大整数，甚至可以超过数字的安全整数限制。</li>
-<li>字符串（String），字符串是一串表示文本值的字符序列，例如：”Howdy” 。</li>
-<li>代表（Symbol） ( 在 ECMAScript 6 中新添加的类型).。一种实例是唯一且不可改变的数据类型。</li>
-</ol>
+        <ol>
+<li><p>在 JavaScript 里面，数字均为<strong>双精度浮点类型</strong>，即一个介于±2^−1023 和±2^+1024 之间的数字，或约为±10^−308 到±10^+308，数字精度为 53 位。整数数值仅在±(2^53 - 1) 的范围内可以表示准确。</p>
 </li>
-<li>对象(Object)</li>
-</ul>
-<h3 id="数字转换为字符串"><a href="#数字转换为字符串" class="headerlink" title="数字转换为字符串"></a>数字转换为字符串</h3><ol>
-<li><p>在包含的数字和字符串的表达式中使用加法运算符（+），JavaScript 会把数字转换成字符串。</p>
- <figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">x = <span class="hljs-string">&quot;The answer is &quot;</span> + <span class="hljs-number">42</span> <span class="hljs-comment">// &quot;The answer is 42&quot;</span><br>y = <span class="hljs-number">42</span> + <span class="hljs-string">&quot; is the answer&quot;</span> <span class="hljs-comment">// &quot;42 is the answer&quot;</span><br></code></pre></td></tr></table></figure></li>
-<li><p>在涉及其它运算符（译注：如下面的减号’-‘）时，JavaScript语言不会把数字变为字符串。</p>
- <figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-string">&quot;37&quot;</span> - <span class="hljs-number">7</span> <span class="hljs-comment">// 30</span><br><span class="hljs-string">&quot;37&quot;</span> + <span class="hljs-number">7</span> <span class="hljs-comment">// &quot;377&quot;</span><br></code></pre></td></tr></table></figure></li>
-<li><p>parseInt 方法只能返回整数，所以使用它会丢失小数部分。另外，调用 parseInt 时最好总是带上进制(radix) 参数，这个参数用于指定使用哪一种进制。将字符串转换为数字的另一种方法是使用一元加法运算符。</p>
- <figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-built_in">parseInt</span>(<span class="hljs-string">&quot;66a&quot;</span>) <span class="hljs-comment">// 66</span><br><span class="hljs-built_in">parseInt</span>(<span class="hljs-string">&quot;66&quot;</span>, <span class="hljs-number">8</span>) <span class="hljs-comment">// 54 以8进制66解析为10进制的54</span><br><span class="hljs-built_in">parseInt</span>(<span class="hljs-string">&quot;66&quot;</span>, <span class="hljs-number">2</span>) <span class="hljs-comment">// NaN</span><br>(<span class="hljs-number">54</span>).toString(<span class="hljs-number">8</span>) <span class="hljs-comment">// 66 10进制的54解析为8进制的66</span><br><span class="hljs-string">&quot;54&quot;</span>.toString(<span class="hljs-number">8</span>) <span class="hljs-comment">// 54 字符串则不会进制转换</span><br><br><span class="hljs-comment">// 一元加法运算符字符串转数字</span><br><span class="hljs-string">&quot;1.1&quot;</span> + <span class="hljs-string">&quot;1.1&quot;</span> = <span class="hljs-string">&quot;1.11.1&quot;</span><br>(+<span class="hljs-string">&quot;1.1&quot;</span>) + (+<span class="hljs-string">&quot;1.1&quot;</span>) = <span class="hljs-number">2.2</span><br><span class="hljs-comment">// 注意：加入括号为清楚起见，不是必需的。</span><br></code></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="流程控制与错误处理"><a href="#流程控制与错误处理" class="headerlink" title="流程控制与错误处理"></a>流程控制与错误处理</h2><h3 id="if…else…语句"><a href="#if…else…语句" class="headerlink" title="if…else…语句"></a>if…else…语句</h3><ol>
-<li><p>if 条件错误的值（也被叫做Falsy值）</p>
+<li><p>JavaScript 最近添加了 BigInt 的支持，<strong>你不能让 BigInt 和 Number 直接进行运算，你也不能用 Math 对象去操作 BigInt</strong></p>
+</li>
+<li><p><strong>二进制</strong>数字语法是以零为开头，后面接一个小写或大写的拉丁文字母 B(<em><strong>0b</strong></em> 或者是 <em><strong>0B</strong></em>)。 假如 0b 后面的数字不是 0 或者 1，那么就会提示这样的语法错误</p>
+</li>
+<li><p>十进制可以以 0 开头，后面接其他十进制数字，但是假如下一个接的十进制数字小于 8，那么该数字将会被当做八进制处理。</p>
+</li>
+<li><p>在 ECMAScript 5 严格模式下禁止使用八进制语法。通过在八进制数字添加一个前缀 0 就可以被所有的浏览器支持; ECMAScript 6 中使用<strong>八进制</strong>数字是需要给一个数字添加前缀”<strong>0o</strong>“。</p>
+</li>
+<li><p><strong>十六进制</strong>数字语法是以零为开头，后面接一个小写或大写的拉丁文字母 X(<strong>0x</strong> 或者是 <strong>0X</strong>)。假如0x后面的数字超出规定范围 (0123456789ABCDEF)，那么就会提示这样的语法错误</p>
+</li>
+<li><p><strong>Number.parseFloat()</strong>: 把字符串参数解析成浮点数，和全局方法 parseFloat() 作用一致。</p>
+</li>
+<li><p><strong>Number.parseInt()</strong>: 把字符串解析成特定基数对应的整型数字，和全局方法 parseInt() 作用一致。</p>
+</li>
+<li><p><strong>Number.isFinite()</strong>: 判断传递的值是否为有限数字。</p>
+</li>
+<li><p><strong>Number.isInteger()</strong>: 判断传递的值是否为整数。</p>
+</li>
+<li><p><strong>Number.isNaN()</strong>: 判断传递的值是否为 NaN. More robust version of the original global isNaN().</p>
+</li>
+<li><p><strong>Number.isSafeInteger()</strong>: 判断传递的值是否为安全整数。</p>
+</li>
+<li><p><strong>Math</strong> 的方法</p>
 <ul>
-<li>false</li>
-<li>undefined</li>
-<li>null</li>
-<li>0</li>
-<li>NaN</li>
-<li>空字符串（””） </li>
+<li><p><strong>abs()</strong> ：绝对值</p>
+</li>
+<li><p><strong>sin()</strong>, <strong>cos()</strong>, <strong>tan()</strong> ：标准三角函数;参数为弧度</p>
+</li>
+<li><p><strong>asin()</strong>, <strong>acos()</strong>, <strong>atan()</strong>, <strong>atan2()</strong> : 反三角函数; 返回值为弧度</p>
+</li>
+<li><p><strong>sinh()</strong>, <strong>cosh()</strong>, <strong>tanh()</strong> : 双曲三角函数; 参数为弧度。</p>
+</li>
+<li><p><strong>asinh()</strong>, <strong>acosh()</strong>, <strong>atanh()</strong> : 反双曲三角函数;返回值为弧度。</p>
+</li>
+<li><p><strong>floor()</strong>, <strong>ceil()</strong> : 返回小于等于参数的最大整数；返回大于等于参数的最小整数</p>
+</li>
+<li><p><strong>min()</strong>, <strong>max()</strong> : 返回一个以逗号间隔的数字参数列表中的较小或较大值 (分别地)</p>
+</li>
+<li><p><strong>random()</strong> : 返回 0 和 1 之间的随机数。</p>
+</li>
+<li><p><strong>round()</strong> : 四舍五入和截断函数</p>
+</li>
+<li><p><strong>fround()</strong> : 将任意的数字转换为离它最近的单精度浮点数形式的数字。</p>
+</li>
+<li><p><strong>trunc()</strong> : 删除掉数字的小数部分和小数点，不管参数是正数还是负数。</p>
+</li>
+<li><p><strong>sqrt()</strong> : 函数返回一个数的平方根</p>
+</li>
+<li><p><strong>cbrt()</strong> : 函数返回任意数字的立方根。</p>
+</li>
+<li><p><strong>hypot()</strong> : 所有参数平方和的平方根</p>
+</li>
+<li><p><strong>sign()</strong> : 数字的符号，说明数字是否为正、负、零。共有 5 种返回值，分别是 1, -1, 0, -0, NaN. 代表的各是正数，负数，正零，负零，NaN。</p>
+</li>
 </ul>
-<p> <em><strong>注意不报括（”   “中间有空格）当传递给条件语句所有其他的值，包括所有对象会被计算为真 。</strong></em></p>
-</li>
-<li><p>请不要混淆原始的布尔值true和false 与 Boolean对象的真和假。例如：</p>
- <figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> b = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Boolean</span>(<span class="hljs-literal">false</span>);<br><span class="hljs-keyword">if</span> (b) <span class="hljs-comment">//结果视为真</span><br><span class="hljs-keyword">if</span> (b == <span class="hljs-literal">true</span>) <span class="hljs-comment">// 结果视为假</span><br></code></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="try…catch…finally…-语句"><a href="#try…catch…finally…-语句" class="headerlink" title="try…catch…finally… 语句"></a>try…catch…finally… 语句</h3><ol>
-<li><p>简介</p>
-<p> 如果你在try代码块中的代码如果没有执行成功，那么你希望将执行流程转入catch代码块。如果try代码块中的语句（或者try 代码块中调用的方法）一旦抛出了异常，那么执行流程会立即进入catch 代码块。如果try代码块没有抛出异常，catch代码块就会被跳过。finally 代码块总会紧跟在try和catch代码块之后执行，但会在try和catch代码块之后的其他代码之前执行。</p>
-</li>
-<li><p>catch 块<br> 可以用这个标识符来获取抛出的异常信息。在插入throw块时JavaScript创建这个标识符；标识符只存在于catch块的存续期间里；当catch块执行完成时，标识符不再可用。</p>
-</li>
-<li><p>finally块<br>finally块包含了在try和catch块完成后、下面接着try…catch的语句之前执行的语句。finally块无论是否抛出异常都会执行。如果抛出了一个异常，就算没有异常处理，finally块里的语句也会执行。</p>
 </li>
 </ol>
 
@@ -349,19 +364,19 @@
 </script>
 <div class="Last-Next">
     
-    <a href="/2019/10/06/javascript-array1/">
+    <a href="/2020/11/23/js-abstract-(let,const,var)/">
         <div class="last">
             <span>上一篇</span>
-            <p>javascript - 基础(Array对象)实现队列</p>
+            <p>javascript - 随手摘要(let,const,var)</p>
         </div>
     </a>
     
 
     
-    <a href="/2018/10/06/javascript-array/">
+    <a href="/2020/11/03/vue-(data,computed,watch)/">
         <div class="next">
             <span>下一篇</span>
-            <p>javascript - 基础(Array对象)</p>
+            <p>vue：watch，computed</p>
         </div>
     </a>
     

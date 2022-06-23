@@ -3,14 +3,14 @@
 
 	<head>
 		
-<title>javascript - 基础(equal)-Z</title>
+<title>sk-learn-Z</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
 
 
-<meta name="keywords" content="javascript,">
+<meta name="keywords" content="python,sk-learn,">
 <meta name="description" content="">
 
 
@@ -83,7 +83,7 @@
 										
 							
 									<li>
-										<a href="/tags">
+										<a href="/tags/">
 											标签
 										</a>
 										<span class="dot"></span>
@@ -128,7 +128,7 @@
         </li>
         
         <li>
-            <a href="/tags">标签</a>
+            <a href="/tags/">标签</a>
         </li>
         
         <li>
@@ -252,11 +252,13 @@
         <ul class="tag">
             
             
-            <li><a href="/tags/javascript">javascript</a></li>
+            <li><a href="/tags/python">python</a></li>
+            
+            <li><a href="/tags/sk-learn">sk-learn</a></li>
             
             
         </ul>
-        <h1>javascript - 基础(equal)</h1>
+        <h1>sk-learn</h1>
         <div class="article-info">
             <div class="article-author">
                 
@@ -268,39 +270,49 @@
                 </svg>
                 
                 <span> <a href="">Z</a></span>
-                <p>2022-04-02 00:00:00</p>
+                <p>2022-04-01 10:48:39</p>
             </div>
         </div>
     </div>
 </div>
 <div class="article-content">
     <div id="article" class="content">
-        <h3 id="相等的四种算法"><a href="#相等的四种算法" class="headerlink" title="相等的四种算法"></a>相等的四种算法</h3><ol>
-<li>抽象（非严格）相等比较 (==)</li>
-<li>严格相等比较 (===)</li>
-<li>同值零</li>
-<li>同值: 用于所有其他地方</li>
-</ol>
-<h3 id="JavaScript提供三种不同的值比较操作"><a href="#JavaScript提供三种不同的值比较操作" class="headerlink" title="JavaScript提供三种不同的值比较操作"></a>JavaScript提供三种不同的值比较操作</h3><ol>
-<li>严格相等比较 (也被称作”strict equality”, “identity”, “triple equals”)，使用 === ,</li>
-<li>抽象相等比较 (“loose equality”，”double equals”) ，使用 ==</li>
-<li>以及 Object.is （ECMAScript 2015/ ES6 新特性）</li>
-</ol>
-<h4 id="严格相等"><a href="#严格相等" class="headerlink" title="严格相等"></a>严格相等</h4><p>全等操作符比较两个值是否相等，两个被比较的值在比较前都不进行隐式转换。如果两个被比较的值具有不同的类型，这两个值是不全等的。否则，如果两个被比较的值类型相同，值也相同，并且都不是 number 类型时，两个值全等。最后，如果两个值都是 number 类型，当两个都不是 NaN，并且数值相同，或是两个值分别为 +0 和 -0 时，两个值被认为是全等的。如果值为NaN则不相等。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> num = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">var</span> obj = <span class="hljs-keyword">new</span> <span class="hljs-built_in">String</span>(<span class="hljs-string">&quot;0&quot;</span>);<br><span class="hljs-keyword">var</span> str = <span class="hljs-string">&quot;0&quot;</span>;<br><span class="hljs-keyword">var</span> b = <span class="hljs-literal">false</span>;<br><br><span class="hljs-built_in">console</span>.log(num === num); <span class="hljs-comment">// true</span><br><span class="hljs-built_in">console</span>.log(obj === obj); <span class="hljs-comment">// true</span><br><span class="hljs-built_in">console</span>.log(str === str); <span class="hljs-comment">// true</span><br><br><span class="hljs-built_in">console</span>.log(num === obj); <span class="hljs-comment">// false</span><br><span class="hljs-built_in">console</span>.log(num === str); <span class="hljs-comment">// false</span><br><span class="hljs-built_in">console</span>.log(obj === str); <span class="hljs-comment">// false</span><br><span class="hljs-built_in">console</span>.log(<span class="hljs-literal">null</span> === <span class="hljs-literal">undefined</span>); <span class="hljs-comment">// false</span><br><span class="hljs-built_in">console</span>.log(obj === <span class="hljs-literal">null</span>); <span class="hljs-comment">// false</span><br><span class="hljs-built_in">console</span>.log(obj === <span class="hljs-literal">undefined</span>); <span class="hljs-comment">// false</span><br></code></pre></td></tr></table></figure>
+        <h3 id="安装sk-learn"><a href="#安装sk-learn" class="headerlink" title="安装sk-learn"></a>安装sk-learn</h3><h4 id="pip-简介"><a href="#pip-简介" class="headerlink" title="pip 简介"></a>pip 简介</h4><p>Scikit learn 也简称 sklearn, 是机器学习领域当中最知名的 python 模块之一.</p>
+<p>Sklearn 包含了很多种机器学习的方式:</p>
+<p>Classification 分类</p>
+<p>Regression 回归</p>
+<p>Clustering 非监督分类</p>
+<p>Dimensionality reduction 数据降维</p>
+<p>Model Selection 模型选择</p>
+<p>Preprocessing 数据预处理</p>
+<h4 id="pip-安装"><a href="#pip-安装" class="headerlink" title="pip 安装"></a>pip 安装</h4><figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 安装条件</span><br><span class="hljs-comment"># Python (&gt;=2.6 或 &gt;=3.3 版本)</span><br><span class="hljs-comment"># Numpy (&gt;=1.6.1)</span><br><span class="hljs-comment"># Scipy (&gt;=0.9)</span><br><br><span class="hljs-comment"># python 2+ 版本</span><br>pip install sciket-learn<br><br><span class="hljs-comment"># python 3+ 版本</span><br>pip3 install sciket-learn<br><br><span class="hljs-comment">#如果你是 Windows 用户, 你也可以选择使用 Anaconda 来安装所有 python 的科学计算模块. Anaconda的相关资料在这</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="非严格相等"><a href="#非严格相等" class="headerlink" title="非严格相等 =="></a>非严格相等 ==</h3><p>相等操作符比较两个值是否相等，在比较前将两个被比较的值转换为相同类型。在转换后（等式的一边或两边都可能被转换），最终的比较方式等同于全等操作符 === 的比较方式。 相等操作符满足交换律。</p>
-<p><img src="/image/equal/equal.jpg" alt="非严格相等判定" title="非严格相等判定"></p>
-<p>ToNumber(A) 尝试在比较前将参数 A 转换为数字，这与 +A（单目运算符+）的效果相同。ToPrimitive(A)通过尝试调用 A 的A.toString() 和 A.valueOf() 方法，将参数 A 转换为原始值（Primitive）。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> num = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">var</span> obj = <span class="hljs-keyword">new</span> <span class="hljs-built_in">String</span>(<span class="hljs-string">&quot;0&quot;</span>);<br><span class="hljs-keyword">var</span> str = <span class="hljs-string">&quot;0&quot;</span>;<br><span class="hljs-keyword">var</span> b = <span class="hljs-literal">false</span>;<br><br><span class="hljs-built_in">console</span>.log(num == num); <span class="hljs-comment">// true</span><br><span class="hljs-built_in">console</span>.log(obj == obj); <span class="hljs-comment">// true</span><br><span class="hljs-built_in">console</span>.log(str == str); <span class="hljs-comment">// true</span><br><br><span class="hljs-built_in">console</span>.log(num == obj); <span class="hljs-comment">// true</span><br><span class="hljs-built_in">console</span>.log(num == str); <span class="hljs-comment">// true</span><br><span class="hljs-built_in">console</span>.log(obj == str); <span class="hljs-comment">// true</span><br><span class="hljs-built_in">console</span>.log(<span class="hljs-literal">null</span> == <span class="hljs-literal">undefined</span>); <span class="hljs-comment">// true</span><br><br><span class="hljs-comment">// both false, except in rare cases</span><br><span class="hljs-built_in">console</span>.log(obj == <span class="hljs-literal">null</span>);<br><span class="hljs-built_in">console</span>.log(obj == <span class="hljs-literal">undefined</span>);<br></code></pre></td></tr></table></figure>
+<h4 id="sk-learn-工作流程"><a href="#sk-learn-工作流程" class="headerlink" title="sk-learn 工作流程"></a>sk-learn 工作流程</h4><ol>
+<li>实例化要使用的特定机器学习模型</li>
+<li>使模型适合训练数据</li>
+<li>使用模型进行预测</li>
+<li>评估预测的准确性</li>
+</ol>
+<h4 id="sk-learn-数据集分割"><a href="#sk-learn-数据集分割" class="headerlink" title="sk-learn 数据集分割"></a>sk-learn 数据集分割</h4><ol>
+<li><p>留出法<br>基本思想是将数据集D（即我们获得的所有样本数据）划分为两个互斥的集合，将其中一个作为训练集S，另一个作为验证集T，即D=SUT，S∩T=Φ。在S上训练出模型后，再用T来评估其测试误差，作为泛化误差的估计值；</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> sklearn.model_selection <span class="hljs-keyword">import</span> train_test_split<br>X_train, X_test, y_train, y_test = train_test_split() <br><br><span class="hljs-comment"># X：待分割的样本集中的自变量部分，通常为二维数组或矩阵的形式；</span><br><span class="hljs-comment"># y：待分割的样本集中的因变量部分，通常为一维数组；</span><br><span class="hljs-comment"># test_size：用于指定验证集所占的比例，有以下几种输入类型：</span><br>　　  <span class="hljs-comment"># float型，0.0~1.0之间，此时传入的参数即作为验证集的比例；</span><br>　　  <span class="hljs-comment"># int型，此时传入的参数的绝对值即作为验证集样本的数量；</span><br>　　  <span class="hljs-comment"># None，这时需要另一个参数train_size有输入才生效，此时验证集去为train_size指定的比例或数量的补集；</span><br>　　  <span class="hljs-comment"># 缺省时为0.25，但要注意只有在train_size和test_size都不输入值时缺省值才会生效；</span><br><span class="hljs-comment"># train_size：基本同test_size，但缺省值为None，其实test_size和train_size输入一个即可；</span><br><span class="hljs-comment"># random_state：int型，控制随机数种子，默认为None，即纯随机（伪随机）；</span><br><span class="hljs-comment"># stratify：控制分类问题中的分层抽样，默认为None，即不进行分层抽样，当传入为数组时，则依据该数组进行分层抽样（一般传入因变量所在列）；</span><br><span class="hljs-comment"># shuffle：bool型，用来控制是否在分割数据前打乱原数据集的顺序，默认为True，分层抽样时即stratify为None时该参数必须传入False；</span><br></code></pre></td></tr></table></figure></li>
+<li><p>交叉验证法</p>
+</li>
+<li><p>基于生成器的采样方法</p>
+</li>
+</ol>
+<h4 id="sk-learn-数据缩放"><a href="#sk-learn-数据缩放" class="headerlink" title="sk-learn 数据缩放"></a>sk-learn 数据缩放</h4><ol>
+<li><p>标准缩放（Standard Scaler）<br> StandardScaler假定你的数据正态分布在每个要素中，并将对其进行缩放，以使分布现在以0为中心，标准偏差为1。<br> 计算特征的平均值和标准偏差，然后根据以下条件对特征进行缩放：</p>
+<p> <img src="/image/md-image/python%E7%89%B9%E5%BE%81%E7%BC%A9%E6%94%BE1.png" alt="&quot;标准缩放（Standard Scaler）&quot;" title="标准缩放（Standard Scaler）"><br> 如果数据<strong>不是正态分布</strong>的，那么这<strong>不算是最佳的缩放方法</strong>。</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> sklearn.preprocessing <span class="hljs-keyword">import</span> StandardScaler  <span class="hljs-comment"># 标准化工具</span><br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br>x_np = np.array([[<span class="hljs-number">1.5</span>, -<span class="hljs-number">1.</span>, <span class="hljs-number">2.</span>],<br>              [<span class="hljs-number">2.</span>, <span class="hljs-number">0.</span>, <span class="hljs-number">0.</span>]])<br>scaler = StandardScaler()<br>x_train = scaler.fit_transform(x_np)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;矩阵初值为：&#123;&#125;&#x27;</span>.<span class="hljs-built_in">format</span>(x_np))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;该矩阵的均值为：&#123;&#125;\n 该矩阵的标准差为：&#123;&#125;&#x27;</span>.<span class="hljs-built_in">format</span>(scaler.mean_,np.sqrt(scaler.var_)))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;标准差标准化的矩阵为：&#123;&#125;&#x27;</span>.<span class="hljs-built_in">format</span>(x_train))<br><br><span class="hljs-comment"># 矩阵初值为：[[ 1.5 -1.   2. ]</span><br><span class="hljs-comment">#             [ 2.   0.   0. ]]</span><br><span class="hljs-comment"># 该矩阵的均值为：   [ 1.75 -0.5   1.  ]</span><br><span class="hljs-comment"># 该矩阵的标准差为：[0.25 0.5  1.  ]</span><br><span class="hljs-comment"># 标准差标准化的矩阵为：[[-1. -1.  1.]</span><br><span class="hljs-comment">#                      [ 1.  1. -1.]]</span><br></code></pre></td></tr></table></figure>
 
-<h4 id="相等比较的模型"><a href="#相等比较的模型" class="headerlink" title="相等比较的模型"></a>相等比较的模型</h4><p><img src="/image/equal/equal.png" alt="相等比较的区别" title="相等比较的区别"></p>
-<p>需要注意的是</p>
-<ol>
-<li><code>Object.is(NaN, NaN)</code>的值为<strong>true</strong></li>
-<li><code>Object.is(+0, -0)</code>的值为<strong>false</strong></li>
-<li>全等时<code>NaN === NaN</code>的值为<strong>false</strong></li>
-<li>全等时<code>+0 === -0</code>的值<strong>true</strong></li>
+ <figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">StandardScaler()的方法<br>fit():<br>  <span class="hljs-number">1.</span> 功能：<br>    计算均值和标准差，用于以后的缩放。<br>  <span class="hljs-number">2.</span> 参数：<br>    X: 二维数组，形如(样本的数量，特征的数量)<br>      训练集<br>fit_transform():<br>  <span class="hljs-number">1.</span> 功能：<br>    先计算均值、标准差，再标准化<br>  <span class="hljs-number">2.</span> 参数:<br>    X: 二维数组<br>transform():<br>  <span class="hljs-number">1.</span> 功能：<br>    通过居中和缩放执行标准化。<br>  <span class="hljs-number">2.</span> 参数：<br>    X: 二维数组<br>      该数据沿着特征轴。<br>inverse_transform():<br>  <span class="hljs-number">1.</span> 功能：<br>    将数据按比例恢复到以前的大小。<br>  <span class="hljs-number">2.</span> 参数：<br>    X: 二维数组，形如(样本数量，特征数量)、<br>容易犯的错误<br>错误输入一维数组给fit_transform()、transform()。<br>原因是，标准化是对列操作的，一维数组每列中只有一个值，无法计算。<br>解决是，通过reshape(-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>)，将一维数组改为二维数组。<br></code></pre></td></tr></table></figure></li>
+<li><p>最大最小值缩放（Min-Max Scaler）</p>
+</li>
+<li><p>稳健缩放 （Roburst Scaler）</p>
+</li>
+<li><p>归一化（Normalizer）</p>
+</li>
 </ol>
 
     </div>
@@ -331,12 +343,19 @@
 </script>
 <div class="Last-Next">
     
+    <a href="/2022/04/01/python-similar-model/">
+        <div class="last">
+            <span>上一篇</span>
+            <p>相似模型</p>
+        </div>
+    </a>
+    
 
     
-    <a href="/2022/04/01/python-lib/">
+    <a href="/2021/10/08/python-numpy/">
         <div class="next">
             <span>下一篇</span>
-            <p>python 基础库</p>
+            <p>numpy</p>
         </div>
     </a>
     
