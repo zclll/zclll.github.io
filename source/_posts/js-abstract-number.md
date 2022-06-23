@@ -3,7 +3,7 @@ title: javascript - 随手摘要(number)
 categories: javascript基础
 tags:
     - javascript
-date: 2020-11-24
+date: 2020-11-22
 cover: /image/cover/javascript.jpg
 ---
 
