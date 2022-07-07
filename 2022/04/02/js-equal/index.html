@@ -295,12 +295,21 @@
 <figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> num = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">var</span> obj = <span class="hljs-keyword">new</span> <span class="hljs-built_in">String</span>(<span class="hljs-string">&quot;0&quot;</span>);<br><span class="hljs-keyword">var</span> str = <span class="hljs-string">&quot;0&quot;</span>;<br><span class="hljs-keyword">var</span> b = <span class="hljs-literal">false</span>;<br><br><span class="hljs-built_in">console</span>.log(num == num); <span class="hljs-comment">// true</span><br><span class="hljs-built_in">console</span>.log(obj == obj); <span class="hljs-comment">// true</span><br><span class="hljs-built_in">console</span>.log(str == str); <span class="hljs-comment">// true</span><br><br><span class="hljs-built_in">console</span>.log(num == obj); <span class="hljs-comment">// true</span><br><span class="hljs-built_in">console</span>.log(num == str); <span class="hljs-comment">// true</span><br><span class="hljs-built_in">console</span>.log(obj == str); <span class="hljs-comment">// true</span><br><span class="hljs-built_in">console</span>.log(<span class="hljs-literal">null</span> == <span class="hljs-literal">undefined</span>); <span class="hljs-comment">// true</span><br><br><span class="hljs-comment">// both false, except in rare cases</span><br><span class="hljs-built_in">console</span>.log(obj == <span class="hljs-literal">null</span>);<br><span class="hljs-built_in">console</span>.log(obj == <span class="hljs-literal">undefined</span>);<br></code></pre></td></tr></table></figure>
 
 <h4 id="相等比较的模型"><a href="#相等比较的模型" class="headerlink" title="相等比较的模型"></a>相等比较的模型</h4><p><img src="/image/equal/equal.png" alt="相等比较的区别" title="相等比较的区别"></p>
-<p>需要注意的是</p>
-<ol>
+<h4 id="Object-is重写"><a href="#Object-is重写" class="headerlink" title="Object.is重写"></a>Object.is重写</h4><ol>
+<li><p>利用 Object.is (同值相等) 与严格相等(零值相等)的区别</p>
+<ul>
 <li><code>Object.is(NaN, NaN)</code>的值为<strong>true</strong></li>
 <li><code>Object.is(+0, -0)</code>的值为<strong>false</strong></li>
 <li>全等时<code>NaN === NaN</code>的值为<strong>false</strong></li>
 <li>全等时<code>+0 === -0</code>的值<strong>true</strong></li>
+</ul>
+</li>
+<li><p>利用 <code>1 / +0 === Infinity</code> 并且 <code>1 / -0 === -Infinity</code> 所以 <code>1 / +0 !== 1 / -0</code>;</p>
+</li>
+<li><p>只有 <code>NaN</code> 不等于自身,判断值是不是 <code>NaN</code></p>
+</li>
+<li><p>代码实现</p>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-built_in">Object</span>.myIs = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">a, b</span>) </span>&#123;<br>  <span class="hljs-keyword">if</span>(a === b) &#123;<br>    <span class="hljs-keyword">return</span> a !== <span class="hljs-number">0</span> || <span class="hljs-number">1</span> / a === <span class="hljs-number">1</span> / b<br>  &#125;<br><br>  <span class="hljs-keyword">return</span> a !== a &amp;&amp; b !== b<br>&#125;<br></code></pre></td></tr></table></figure></li>
 </ol>
 
     </div>

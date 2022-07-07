@@ -281,8 +281,8 @@
 <li><p>如果区块中存在let和const命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域。凡是在声明之前就使用这些变量，就会报错。这在语法上，称为“<strong>暂时性死区</strong>”（temporal dead zone，简称 TDZ）</p>
 </li>
 <li><p>下面代码正确运行，输出了 3 次abc。这表明<strong>函数内部的变量i与循环变量i不在同一个作用域</strong>，有各自单独的作用域（同一个作用域不可使用 let 重复声明同一个变量）。</p>
- <figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">3</span>; i++) &#123;<br><span class="hljs-keyword">let</span> i = <span class="hljs-string">&#x27;abc&#x27;</span>;<br><span class="hljs-built_in">console</span>.log(i);<br>&#125;<br><span class="hljs-comment">// abc</span><br><span class="hljs-comment">// abc</span><br><span class="hljs-comment">// abc</span><br></code></pre></td></tr></table></figure></li>
-<li><p>浏览器实现差异（其他环境的实现不用遵守，还是将块级作用域的函数声明当作<strong>let</strong>处理。</p>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">3</span>; i++) &#123;<br>    <span class="hljs-keyword">let</span> i = <span class="hljs-string">&#x27;abc&#x27;</span>;<br>    <span class="hljs-built_in">console</span>.log(i);<br>&#125;<br><span class="hljs-comment">// abc</span><br><span class="hljs-comment">// abc</span><br><span class="hljs-comment">// abc</span><br></code></pre></td></tr></table></figure></li>
+<li><p>浏览器实现差异（只对 ES6 的浏览器实现有效，其他环境的实现不用遵守，还是将块级作用域的函数声明当作<strong>let</strong>处理。）</p>
 <ul>
 <li>允许在块级作用域内声明函数。</li>
 <li>函数声明类似于<strong>var</strong>，即会提升到全局作用域或函数作用域的头部。</li>
