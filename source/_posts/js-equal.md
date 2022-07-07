@@ -74,9 +74,24 @@ console.log(obj == undefined);
 
 ![相等比较的区别](/image/equal/equal.png "相等比较的区别")
 
-需要注意的是
+#### Object.is重写
 
-1. `Object.is(NaN, NaN)`的值为**true**
-2. `Object.is(+0, -0)`的值为**false**
-3. 全等时`NaN === NaN`的值为**false**
-4. 全等时`+0 === -0`的值**true**
+1. 利用 Object.is (同值相等) 与严格相等(零值相等)的区别
+    - `Object.is(NaN, NaN)`的值为**true**
+    - `Object.is(+0, -0)`的值为**false**
+    - 全等时`NaN === NaN`的值为**false**
+    - 全等时`+0 === -0`的值**true**
+
+2. 利用 `1 / +0 === Infinity` 并且 `1 / -0 === -Infinity` 所以 `1 / +0 !== 1 / -0`;
+3. 只有 `NaN` 不等于自身,判断值是不是 `NaN`
+4. 代码实现
+
+    ```javascript
+    Object.myIs = function (a, b) {
+      if(a === b) {
+        return a !== 0 || 1 / a === 1 / b
+      }
+
+      return a !== a && b !== b
+    }
+    ```
