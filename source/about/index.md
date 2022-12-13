@@ -1,7 +1,7 @@
 ---
 title: 个人简介
 date: 2019-11-03
-aubot: Z
+aubot: ZC
 portrait: '/image/header.jpeg'
 describe: ' talk is cheap , show me the code'
 type: "about"
@@ -9,4 +9,5 @@ layout: "about"
 author: 79bk.cn
 ---
 
-- 一个苦逼的前端工程师
+- done is better than perfect
+- You build it, You run it.
