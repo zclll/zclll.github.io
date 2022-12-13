@@ -3,14 +3,14 @@
 
 	<head>
 		
-<title>ai 机器学习初识-Z</title>
+<title>判断浏览器环境-Z</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
 
 
-<meta name="keywords" content="python,机器学习,">
+<meta name="keywords" content="浏览器环境,">
 <meta name="description" content="">
 
 
@@ -252,13 +252,11 @@
         <ul class="tag">
             
             
-            <li><a href="/tags/python">python</a></li>
-            
-            <li><a href="/tags/机器学习">机器学习</a></li>
+            <li><a href="/tags/浏览器环境">浏览器环境</a></li>
             
             
         </ul>
-        <h1>ai 机器学习初识</h1>
+        <h1>判断浏览器环境</h1>
         <div class="article-info">
             <div class="article-author">
                 
@@ -270,52 +268,44 @@
                 </svg>
                 
                 <span> <a href="">Z</a></span>
-                <p>2021-08-20 20:33:36</p>
+                <p>2021-04-20 00:00:00</p>
             </div>
         </div>
     </div>
 </div>
 <div class="article-content">
     <div id="article" class="content">
-        <h4 id="机器学习流程"><a href="#机器学习流程" class="headerlink" title="机器学习流程"></a>机器学习流程</h4><ol>
-<li><p>模型选择:选择对应<strong>模型算法</strong>（例如：线性回归、逻辑回归、神经网络、决策树、支持向量机）</p>
-</li>
-<li><p>模型理解:了解模型的<strong>使用场景</strong>、<strong>所需参数</strong>以及<strong>数学意义</strong></p>
-</li>
-<li><p>数据准备:为保证模型准确性需要求：1.数据足够<strong>多</strong>2.数据足够<strong>全</strong>3.数据足够<strong>权威</strong></p>
-</li>
-<li><p>轴确认:选择特征作为模型的<code>X</code>轴，选择模型需要预测的结果为<code>Y</code>轴</p>
-</li>
-<li><p>数据清洗:对数据进行<strong>分组统计</strong>，对特征值筛选（<strong>mRMR算法</strong> =&gt; 最大相关和最小冗余） 最后将<strong>特征缩放</strong></p>
-<ul>
-<li><strong>mRMR</strong>（Max-Relevance and Min-Redundancy）：在原始特征集合中找到与最终输出结果相关性最大（Max-Relevance），和特征彼此之间相关性最小的一组特征（Min-Redundancy）</li>
-<li><strong>特征缩放</strong>：用来统一资料中的自变项或特征范围的方法，特征缩放可以使机器学习算法工作的更好。</li>
-</ul>
-</li>
-<li><p>训练模型:随机选取一部分（70%） 运行模型算法（Y = kX + k₂X₂ ···）,大致算出每个特征的权重k</p>
-<ul>
-<li><strong>模型算法</strong>：例如sk-learn中的逻辑回归LogisticRegression</li>
-</ul>
-</li>
-<li><p>模型存储:存储运行后的模型公式（输入为带有这些特征的数据，输出为正的概率和为负的概率）</p>
-</li>
-<li><p>模型验证:再选另外一部分（30%） 运行模型公式，推算出<strong>tp</strong>（预测为正，实现也为正）<strong>fp</strong>（预测为负，实现为正）<strong>tn</strong>（预测为负，实现为负） <strong>fn</strong>（预测为负，实现为正）</p>
-</li>
-<li><p>根据预测的准确度经过公式推导</p>
- <figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// (精度) 精确率</span><br>P = 识别出的正确的正样本的数目 / 预测为正样本的数目<br><span class="hljs-comment">// (召回率) 或覆盖率</span><br>R = 识别出的正确的正样本的数目 / 实际为正样本的数目 <br><span class="hljs-comment">// 调和平均值</span><br>F1 是精确度和召回率的 <br>F1 = 2P×R / P+R<br><span class="hljs-comment">// 精确度和召回率都高时， F1值也会高． </span><br><span class="hljs-comment">// F1值在1时达到最佳值（完美的精确度和召回率 也就是 P = 1 ， R = 1），</span><br><span class="hljs-comment">// 最差为0．在二元分类中， F1值是测试准确度的量度。</span><br><span class="hljs-attr">TP</span>: 预测为正， 实现为正<br><span class="hljs-attr">FP</span>: 预测为正， 实现为负<br><span class="hljs-attr">FN</span>: 预测为负，实现为正<br><span class="hljs-attr">TN</span>: 预测为负， 实现为负 <br></code></pre></td></tr></table></figure></li>
-<li><p>把数据传给前端绘制对应的<strong>模型好坏ROC</strong>的曲线</p>
-</li>
-<li><p>模型预测:输入对应的特征值，使用存储的模型预测结果（输入为带有这些特征的数据，输出为正的概率和为负的概率）</p>
-</li>
-</ol>
-<h4 id="技术支持-python路线"><a href="#技术支持-python路线" class="headerlink" title="技术支持(python路线)"></a>技术支持(python路线)</h4><ol>
-<li>python 语言基础</li>
-<li>numpy (python数据处理库)</li>
-<li>pandas (python数据处理库基于numpy)</li>
-<li>sk-learn (科学计算库，机器学习基础库)</li>
-<li>tensorflow (张量)</li>
-</ol>
+        <h1 id="navigator-userAgent"><a href="#navigator-userAgent" class="headerlink" title="navigator.userAgent"></a>navigator.userAgent</h1><p>最简单的方法就是分析浏览器的 <code>user agent</code> 字符串，它包含了设备信息。</p>
+<p>JS 通过<code>navigator.userAgent</code>属性拿到这个字符串，只要里面包含<code>mobi</code>、<code>android</code>、<code>iphone</code>等关键字，就可以认定是移动设备。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 这种方法的优点是简单方便，缺点是不可靠，因为用户可以修改这个字符串，让手机浏览器伪装成桌面浏览器。</span><br><span class="hljs-keyword">if</span> (<span class="hljs-regexp">/Mobi|Android|iPhone/i</span>.test(navigator.userAgent)) &#123;<br>  <span class="hljs-comment">// 当前设备是移动设备</span><br>&#125;<br><br><span class="hljs-comment">// 另一种写法</span><br><span class="hljs-keyword">if</span> (<br>  navigator.userAgent.match(<span class="hljs-regexp">/Mobi/i</span>) ||<br>  navigator.userAgent.match(<span class="hljs-regexp">/Android/i</span>) ||<br>  navigator.userAgent.match(<span class="hljs-regexp">/iPhone/i</span>)<br>) &#123;<br>  <span class="hljs-comment">// 当前设备是移动设备</span><br>&#125;<br><br><span class="hljs-comment">// Chromium 系的浏览器，还有一个navigator.userAgentData属性，也是类似的作用。不同之处是它将 user agent 字符串解析为一个对象，该对象的mobile属性，返回一个布尔值，表示用户是否使用移动设备。</span><br><span class="hljs-keyword">const</span> isMobile = navigator.userAgentData.mobile; <br><br><span class="hljs-comment">//还有一个已经废除的navigator.platform属性，所有浏览器都支持，所以也可以用。它返回一个字符串，表示用户的操作系统。</span><br><br><span class="hljs-keyword">if</span> (<span class="hljs-regexp">/Android|iPhone|iPad|iPod/i</span>.test(navigator.platform) &#123;<br><span class="hljs-comment">// 当前设备是移动设备</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
+<h1 id="window-screen-和-window-innerWidth"><a href="#window-screen-和-window-innerWidth" class="headerlink" title="window.screen 和 window.innerWidth"></a>window.screen 和 window.innerWidth</h1><p>通过屏幕宽度，判断是否为手机。</p>
+<p><code>window.screen</code>对象返回用户设备的屏幕信息，该对象的<code>width</code>属性是屏幕宽度（单位为像素）。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.screen.width &lt; <span class="hljs-number">500</span>) &#123;<br>  <span class="hljs-comment">// 当前设备是移动设备 </span><br>&#125;<br><br><span class="hljs-comment">// 如果屏幕宽度window.screen.width小于500像素，就认为是手机。</span><br><span class="hljs-comment">// 这个方法的缺点在于，如果手机横屏使用，就识别不了。</span><br><br></code></pre></td></tr></table></figure>
+
+<p><code>window.innerWidth</code>返回浏览器窗口里面的网页可见部分的宽度，比较适合指定网页在不同宽度下的样式。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> getBrowserWidth = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.innerWidth &lt; <span class="hljs-number">768</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;xs&quot;</span>;<br>  &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.innerWidth &lt; <span class="hljs-number">991</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;sm&quot;</span>;<br>  &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.innerWidth &lt; <span class="hljs-number">1199</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;md&quot;</span>;<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;lg&quot;</span>;<br>  &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h1 id="window-orientation"><a href="#window-orientation" class="headerlink" title="window.orientation"></a>window.orientation</h1><p>侦测屏幕方向，手机屏幕可以随时改变方向（横屏或竖屏），桌面设备做不到。</p>
+<p><code>window.orientation</code>属性用于获取屏幕的当前方向，只有移动设备才有这个属性，桌面设备会返回<code>undefined</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">window</span>.orientation !== <span class="hljs-string">&#x27;undefined&#x27;</span>) &#123;<br>  <span class="hljs-comment">// 当前设备是移动设备 </span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p><strong>注意，iPhone 的 Safari 浏览器不支持该属性。</strong></p>
+<h1 id="touch-事件"><a href="#touch-事件" class="headerlink" title="touch 事件"></a>touch 事件</h1><p>手机浏览器的 DOM 元素可以通过ontouchstart属性，为touch事件指定监听函数。桌面设备没有这个属性。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isMobile</span>(<span class="hljs-params"></span>) </span>&#123; <br>  <span class="hljs-keyword">return</span> (<span class="hljs-string">&#x27;ontouchstart&#x27;</span> <span class="hljs-keyword">in</span> <span class="hljs-built_in">document</span>.documentElement); <br>&#125;<br><br><span class="hljs-comment">// 另一种写法</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isMobile</span>(<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-keyword">try</span> &#123;<br>    <span class="hljs-built_in">document</span>.createEvent(<span class="hljs-string">&quot;TouchEvent&quot;</span>); <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>  &#125; <span class="hljs-keyword">catch</span>(e) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; <br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="window-matchMedia"><a href="#window-matchMedia" class="headerlink" title="window.matchMedia()"></a>window.matchMedia()</h1><p>结合 CSS 来判断。</p>
+<p>CSS 通过 media query（媒介查询）为网页指定响应式样式。如果某个针对手机的 media query 语句生效了，就可以认为当前设备是移动设备。</p>
+<p><code>window.matchMedia()</code>方法接受一个 CSS 的 media query 语句作为参数，判断这个语句是否生效。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> isMobile = <span class="hljs-built_in">window</span>.matchMedia(<span class="hljs-string">&quot;only screen and (max-width: 760px)&quot;</span>).matches;<br></code></pre></td></tr></table></figure>
+
+<p><code>window.matchMedia()</code>的参数是一个 CSS 查询语句，表示只对屏幕宽度不超过 700 像素的设备生效。它返回一个对象，该对象的<code>matches</code>属性是一个布尔值。如果是<code>true</code>，就表示查询生效，当前设备是手机。</p>
+<p>除了通过屏幕宽度判断，还可以通过指针的精确性判断。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> isMobile = <span class="hljs-built_in">window</span>.matchMedia(<span class="hljs-string">&quot;(pointer:coarse)&quot;</span>).matches;<br><br><span class="hljs-keyword">let</span> isMobile = <span class="hljs-built_in">window</span>.matchMedia(<span class="hljs-string">&quot;(any-pointer:coarse)&quot;</span>).matches;<br></code></pre></td></tr></table></figure>
+
+<p>CSS 语句<code>pointer:coarse</code>表示当前设备的指针是不精确的。由于手机不支持鼠标，只支持触摸，所以符合这个条件。</p>
+<p><code>pointer:coarse</code>只用来判断主指针，此外还有一个<code>any-pointer</code>命令判断所有指针。<code>any-pointer:coarse</code>表示所有指针里面，只要有一个指针是不精确的，就符合查询条件。</p>
+<h1 id="工具包"><a href="#工具包" class="headerlink" title="工具包"></a>工具包</h1><p>也可以使用别人写好的工具包。比如 <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/react-device-detect" title="react-device-detect">react-device-detect</a><br>，它支持多种粒度的设备侦测。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><br><span class="hljs-keyword">import</span> &#123;isMobile&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react-device-detect&#x27;</span>;<br><br><span class="hljs-keyword">if</span> (isMobile) &#123;<br>  <span class="hljs-comment">// 当前设备是移动设备</span><br>&#125;<br></code></pre></td></tr></table></figure>
     </div>
 </div>
 <style>
@@ -344,19 +334,19 @@
 </script>
 <div class="Last-Next">
     
-    <a href="/2021/10/08/python-numpy-api/">
+    <a href="/2021/08/20/python-ai/">
         <div class="last">
             <span>上一篇</span>
-            <p>numpy-api函数</p>
+            <p>ai 机器学习初识</p>
         </div>
     </a>
     
 
     
-    <a href="/2021/04/20/js-runtimeEnvironment/">
+    <a href="/2020/11/25/js-abstract-string/">
         <div class="next">
             <span>下一篇</span>
-            <p>判断浏览器环境</p>
+            <p>javascript - 随手摘要(string)</p>
         </div>
     </a>
     
