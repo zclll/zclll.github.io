@@ -3,14 +3,14 @@
 
 	<head>
 		
-<title>简单发布订阅实现-Z</title>
+<title>javascript轮转时间片以及知识补充-Z</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
 
 
-<meta name="keywords" content="Array,数组的特殊用法,发布订阅,">
+<meta name="keywords" content="javascript,">
 <meta name="description" content="">
 
 
@@ -252,15 +252,11 @@
         <ul class="tag">
             
             
-            <li><a href="/tags/Array">Array</a></li>
-            
-            <li><a href="/tags/数组的特殊用法">数组的特殊用法</a></li>
-            
-            <li><a href="/tags/发布订阅">发布订阅</a></li>
+            <li><a href="/tags/javascript">javascript</a></li>
             
             
         </ul>
-        <h1>简单发布订阅实现</h1>
+        <h1>javascript轮转时间片以及知识补充</h1>
         <div class="article-info">
             <div class="article-author">
                 
@@ -272,28 +268,25 @@
                 </svg>
                 
                 <span> <a href="">Z</a></span>
-                <p>2020-06-03 00:00:00</p>
+                <p>2019-12-05 00:00:00</p>
             </div>
         </div>
     </div>
 </div>
 <div class="article-content">
     <div id="article" class="content">
-        <h2 id="任务需求"><a href="#任务需求" class="headerlink" title="任务需求"></a>任务需求</h2><ol>
-<li>eventBus.$on(type, fn) 实现对<strong>type</strong>事件的订阅</li>
-<li>eventBus.$emit(type, data) 实现对<strong>type</strong>事件的发布</li>
-<li>eventBus.$off(type) 取消对<strong>type</strong>事件的订阅</li>
-<li>eventBus.$once(type, fn) 实现对<strong>type</strong>事件只监听一次后取消监听</li>
+        <h3 id="轮转时间片"><a href="#轮转时间片" class="headerlink" title="轮转时间片"></a>轮转时间片</h3><p><strong>概念</strong>： 短时间内轮流执行多个任务的片段（单线程 -&gt; 模拟多线程）</p>
+<ol>
+<li>任务1 、任务2 …</li>
+<li>切分任务并且随机排列这些任务片段组成一个队列</li>
+<li>按照队列的顺序将任务片段送进js进程</li>
+<li>js线程执行一个又一个的片段</li>
 </ol>
-<h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><ol>
-<li><p>用一个对象对存储所有type</p>
- <figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> obj = &#123;<br>    <span class="hljs-attr">type1</span>: ...,<br>    <span class="hljs-attr">type2</span>: ....,<br>    ...<br>&#125;<br></code></pre></td></tr></table></figure></li>
-<li><p>使用数组存储一个type的所有订阅事件</p>
- <figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> obj = &#123;<br>    <span class="hljs-attr">type1</span>: [fn1, fn2, ...],<br>    <span class="hljs-attr">type2</span>: [fn1, fn2, ...],<br>    ...<br>&#125;<br></code></pre></td></tr></table></figure></li>
-<li><p>在发布事件触发时对数组里面的对应type的数组逐一调用并传递参数</p>
-</li>
+<h3 id="知识补充"><a href="#知识补充" class="headerlink" title="知识补充"></a>知识补充</h3><ol>
+<li>字符串(&lt;、&gt;大小比较)：比较字符对应的ASCII码直到比较出大小为之</li>
 </ol>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> eventBus = &#123;<br>    <span class="hljs-attr">eventData</span>: &#123;&#125;,<br>    $on (type, fn) &#123;<br>        <span class="hljs-built_in">this</span>.eventData[type] = <span class="hljs-built_in">this</span>.eventData[type] || [];<br>        <span class="hljs-built_in">this</span>.eventData[type].push(fn);<br>    &#125;,<br>    $emit (type, message) &#123;<br>        <span class="hljs-built_in">this</span>.eventData[type] &amp;&amp; (<span class="hljs-built_in">this</span>.eventData[type] = <span class="hljs-built_in">this</span>.eventData[type].filter(<span class="hljs-function">(<span class="hljs-params">item, index</span>) =&gt;</span> &#123;<br>            item(message);<br>            <span class="hljs-keyword">if</span>(item.once) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>        &#125;))<br>    &#125;,<br>    $once (type, fn) &#123;<br>        <span class="hljs-built_in">this</span>.eventData[type] = <span class="hljs-built_in">this</span>.eventData[type] || [];<br>        fn.once = <span class="hljs-literal">true</span>;<br>        <span class="hljs-built_in">this</span>.eventData[type].push(fn);<br>    &#125;,<br>    $off (type) &#123;<br>        <span class="hljs-built_in">this</span>.eventData[type] = [];<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+  <figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;4.5&quot;</span> &gt; <span class="hljs-string">&quot;11&quot;</span>) <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
+
     </div>
 </div>
 <style>
@@ -322,19 +315,19 @@
 </script>
 <div class="Last-Next">
     
-    <a href="/2020/11/03/vue-(data,computed,watch)/">
+    <a href="/2020/06/03/js-releaseSubscription/">
         <div class="last">
             <span>上一篇</span>
-            <p>vue：watch，computed</p>
+            <p>简单发布订阅实现</p>
         </div>
     </a>
     
 
     
-    <a href="/2019/12/05/js-ohter/">
+    <a href="/2019/11/03/web-Lazy-loading-of-images/">
         <div class="next">
             <span>下一篇</span>
-            <p>javascript轮转时间片以及知识补充</p>
+            <p>图片懒加载</p>
         </div>
     </a>
     

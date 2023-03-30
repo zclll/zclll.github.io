@@ -104,6 +104,31 @@
     
     
     <entry>
+      <title>相似模型</title>
+      <link href="/2022/04/01/python-similar-model/"/>
+      <url>/2022/04/01/python-similar-model/</url>
+      
+        <content type="html"><![CDATA[<h3 id="常见相似算法"><a href="#常见相似算法" class="headerlink" title="常见相似算法"></a>常见相似算法</h3><ol><li>欧德里得距离</li><li>皮尔逊相关系数</li><li>余弦相似度</li><li>Tanimoto系数（广义Jaccard相似系数）</li></ol><h4 id="皮尔逊相关系数"><a href="#皮尔逊相关系数" class="headerlink" title="皮尔逊相关系数"></a>皮尔逊相关系数</h4><p>Pearson 相关系数是用<strong>协方差</strong><em><strong>除以</strong></em>两个变量的<strong>标准差</strong>得到的，虽然协方差能反映两个随机变量的相关程度（协方差大于0的时候表示两者正相关，小于0的时候表示两者负相关），但其数值上受量纲的影响很大，不能简单地从协方差的数值大小给出变量相关程度的判断。为了消除这种量纲的影响，于是就有了相关系数的概念。<br>当两个变量的方差都不为零时，相关系数才有意义，相关系数的取值范围为[-1,1]。《数据挖掘导论》中给了一个很形象的图来说明相关度大小与相关系数之间的联系：</p><p><img src="/image/similar-model/pearson.png" alt="皮尔逊相关系数" title="皮尔逊相关系数"></p><p>由上图可以总结，当相关系数为1时，成为完全正相关；当相关系数为-1时，成为完全负相关；相关系数的绝对值越大，相关性越强；相关系数越接近于0，相关度越弱。</p><p><strong>皮尔逊相关的约束条件:</strong></p><ul><li>两个变量间有线性关系</li><li>变量是连续变量</li><li>变量均符合正态分布,且二元分布也符合正态分布</li><li>两变量独立</li></ul><p>在实践统计中,一般只输出两个系数,一个是相关系数,也就是计算出来的相关系数大小,在-1到1之间;另一个是独立样本检验系数,用来检验样本一致性.</p><h4 id="相似患者模型流程"><a href="#相似患者模型流程" class="headerlink" title="相似患者模型流程"></a>相似患者模型流程</h4><ol><li>相似患者模型流程</li></ol><p><img src="/image/similar-model/process.png" alt="相似患者模型流程" title="相似患者模型流程"><br>2. 相似患者模型</p><p><img src="/image/similar-model/similar-model.jpg" alt="相似患者模型" title="相似患者模型"><br>3. 相似患者功能</p><p><img src="/image/similar-model/function.png" alt="相似患者功能" title="相似患者功能"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> python 库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>sk-learn</title>
       <link href="/2022/04/01/python-sk-learn/"/>
       <url>/2022/04/01/python-sk-learn/</url>
@@ -123,31 +148,6 @@
             <tag> python </tag>
             
             <tag> sk-learn </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>相似模型</title>
-      <link href="/2022/04/01/python-similar-model/"/>
-      <url>/2022/04/01/python-similar-model/</url>
-      
-        <content type="html"><![CDATA[<h3 id="常见相似算法"><a href="#常见相似算法" class="headerlink" title="常见相似算法"></a>常见相似算法</h3><ol><li>欧德里得距离</li><li>皮尔逊相关系数</li><li>余弦相似度</li><li>Tanimoto系数（广义Jaccard相似系数）</li></ol><h4 id="皮尔逊相关系数"><a href="#皮尔逊相关系数" class="headerlink" title="皮尔逊相关系数"></a>皮尔逊相关系数</h4><p>Pearson 相关系数是用<strong>协方差</strong><em><strong>除以</strong></em>两个变量的<strong>标准差</strong>得到的，虽然协方差能反映两个随机变量的相关程度（协方差大于0的时候表示两者正相关，小于0的时候表示两者负相关），但其数值上受量纲的影响很大，不能简单地从协方差的数值大小给出变量相关程度的判断。为了消除这种量纲的影响，于是就有了相关系数的概念。<br>当两个变量的方差都不为零时，相关系数才有意义，相关系数的取值范围为[-1,1]。《数据挖掘导论》中给了一个很形象的图来说明相关度大小与相关系数之间的联系：</p><p><img src="/image/similar-model/pearson.png" alt="皮尔逊相关系数" title="皮尔逊相关系数"></p><p>由上图可以总结，当相关系数为1时，成为完全正相关；当相关系数为-1时，成为完全负相关；相关系数的绝对值越大，相关性越强；相关系数越接近于0，相关度越弱。</p><p><strong>皮尔逊相关的约束条件:</strong></p><ul><li>两个变量间有线性关系</li><li>变量是连续变量</li><li>变量均符合正态分布,且二元分布也符合正态分布</li><li>两变量独立</li></ul><p>在实践统计中,一般只输出两个系数,一个是相关系数,也就是计算出来的相关系数大小,在-1到1之间;另一个是独立样本检验系数,用来检验样本一致性.</p><h4 id="相似患者模型流程"><a href="#相似患者模型流程" class="headerlink" title="相似患者模型流程"></a>相似患者模型流程</h4><ol><li>相似患者模型流程</li></ol><p><img src="/image/similar-model/process.png" alt="相似患者模型流程" title="相似患者模型流程"><br>2. 相似患者模型</p><p><img src="/image/similar-model/similar-model.jpg" alt="相似患者模型" title="相似患者模型"><br>3. 相似患者功能</p><p><img src="/image/similar-model/function.png" alt="相似患者功能" title="相似患者功能"></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> python 库 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> python </tag>
             
         </tags>
       
@@ -406,6 +406,31 @@
             <tag> 数组的特殊用法 </tag>
             
             <tag> 发布订阅 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>javascript轮转时间片以及知识补充</title>
+      <link href="/2019/12/05/js-ohter/"/>
+      <url>/2019/12/05/js-ohter/</url>
+      
+        <content type="html"><![CDATA[<h3 id="轮转时间片"><a href="#轮转时间片" class="headerlink" title="轮转时间片"></a>轮转时间片</h3><p><strong>概念</strong>： 短时间内轮流执行多个任务的片段（单线程 -&gt; 模拟多线程）</p><ol><li>任务1 、任务2 …</li><li>切分任务并且随机排列这些任务片段组成一个队列</li><li>按照队列的顺序将任务片段送进js进程</li><li>js线程执行一个又一个的片段</li></ol><h3 id="知识补充"><a href="#知识补充" class="headerlink" title="知识补充"></a>知识补充</h3><ol><li>字符串(&lt;、&gt;大小比较)：比较字符对应的ASCII码直到比较出大小为之</li></ol>  <figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;4.5&quot;</span> &gt; <span class="hljs-string">&quot;11&quot;</span>) <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> javascript基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> javascript </tag>
             
         </tags>
       
