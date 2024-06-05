@@ -253,6 +253,12 @@
 </div>
 
 <div class="article-content">
+    <div id="zc-search-box">
+        <p class="zc-title">阳历时间转换为天干地支历</p>
+        <input type="date" id="zc-datetime">
+        <button id="zc-button">查询</button>
+        <p id="zc-content"></p>
+    </div>
     
 <link rel="stylesheet" href="/css/page_cente.css">
 
@@ -265,6 +271,24 @@
     </div>
 </div>
 
+
+<script src="/js/LunarCalendar.min.js"></script>
+
+<script>
+    $("#zc-button").on('click', function (e) {
+        let dateStr = $("#zc-datetime").val()
+        if( dateStr ) {
+            let  date = new Date(...dateStr.split("-"));
+            let data = LunarCalendar.solarToLunar(date.getFullYear(), date.getMonth(), date.getDate());
+            let {GanZhiDay,GanZhiMonth,GanZhiYear} = data
+            console.log(data);
+            $("#zc-content").text(GanZhiYear + '' + GanZhiMonth + '' + GanZhiDay);
+        } else {
+            alert("请选择日期")
+        }
+        
+    })
+</script>
 <script>
     $(function () { $('.article-content').addClass('content-move') })
 </script>
@@ -273,7 +297,7 @@
 
 <div class="footer">
 	<div class="Copyright">
-		©2023 By Z.
+		©2024 By Z.
 	</div>
 	<div class="contact">
 		
