@@ -3,14 +3,14 @@
 
 	<head>
 		
-<title>javascript - 基础(Array对象)实现队列-Z</title>
+<title>空亡-Z</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
 
 
-<meta name="keywords" content="javascript,Array,数组的特殊用法,">
+<meta name="keywords" content="易经,">
 <meta name="description" content="">
 
 
@@ -252,15 +252,11 @@
         <ul class="tag">
             
             
-            <li><a href="/tags/javascript">javascript</a></li>
-            
-            <li><a href="/tags/Array">Array</a></li>
-            
-            <li><a href="/tags/数组的特殊用法">数组的特殊用法</a></li>
+            <li><a href="/tags/易经">易经</a></li>
             
             
         </ul>
-        <h1>javascript - 基础(Array对象)实现队列</h1>
+        <h1>空亡</h1>
         <div class="article-info">
             <div class="article-author">
                 
@@ -272,27 +268,58 @@
                 </svg>
                 
                 <span> <a href="">Z</a></span>
-                <p>2019-10-06 00:00:00</p>
+                <p>2024-04-16 15:12:09</p>
             </div>
         </div>
     </div>
 </div>
 <div class="article-content">
     <div id="article" class="content">
-        <h2 id="数组的特殊用法-队列"><a href="#数组的特殊用法-队列" class="headerlink" title="数组的特殊用法 - 队列"></a>数组的特殊用法 - 队列</h2><h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><ol>
-<li><p>定义一个lazyMan函数</p>
-</li>
-<li><p>实现以下方法</p>
- <figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">         <br><span class="hljs-number">1.</span><br>lazyMan(<span class="hljs-string">&quot;hank&quot;</span>)<br>“!,my name is hank” <span class="hljs-comment">//打印</span><br>         <br><span class="hljs-number">2.</span><br>lazyMan(<span class="hljs-string">&quot;hank&quot;</span>).sleep(<span class="hljs-number">10</span>).eat(<span class="hljs-string">&quot;apple&quot;</span>)<br>“!,my name is hank” <span class="hljs-comment">//打印</span><br><span class="hljs-comment">// wating 10s</span><br><span class="hljs-string">&quot;sleep after 10s&quot;</span> <span class="hljs-comment">//打印</span><br><span class="hljs-string">&quot;eat apple&quot;</span> <span class="hljs-comment">//打印</span><br>         <br><span class="hljs-number">3.</span><br>lazyMan(<span class="hljs-string">&quot;hank&quot;</span>).eat(<span class="hljs-string">&quot;apple&quot;</span>).eat(<span class="hljs-string">&quot;food&quot;</span>)<br>“!,my name is hank” <span class="hljs-comment">//打印</span><br><span class="hljs-string">&quot;eat apple&quot;</span> <span class="hljs-comment">//打印</span><br><span class="hljs-string">&quot;eat food&quot;</span> <span class="hljs-comment">//打印</span><br>         <br><span class="hljs-number">4.</span><br>lazyMan(<span class="hljs-string">&quot;hank&quot;</span>).sleepFirst(<span class="hljs-number">5</span>).eat(<span class="hljs-string">&quot;apple&quot;</span>)<br><span class="hljs-comment">// wating 5s</span><br><span class="hljs-string">&quot;sleep after 5s&quot;</span><br>“!,my name is hank”, <span class="hljs-comment">//打印</span><br><span class="hljs-string">&quot;eat apple&quot;</span> <span class="hljs-comment">//打印</span><br>        <br></code></pre></td></tr></table></figure></li>
+        <h3 id="空亡"><a href="#空亡" class="headerlink" title="空亡"></a>空亡</h3><p>一询代表十年（大询也可以为12年），一询当甲子开头排完后会有两个地支没有排到，所以会有缺失的地支<br>空亡： 按照日柱查找对应缺失的地支，如果其他柱有对应的地支，则代表该柱空亡，基本好事减半或者坏事减半。有合会就没事<br>甲戌 乙亥叫自坐空亡，这两个为日柱婚姻不好</p>
+<table>
+<thead>
+<tr>
+<th align="center">日柱</th>
+<th align="center">空亡</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">甲子 乙丑 丙寅 丁卯 戊辰 <br/> 己巳 庚午 辛未 壬申 癸酉</td>
+<td align="center">戌亥</td>
+</tr>
+<tr>
+<td align="center">甲戌 乙亥 丙子 丁丑 戊寅 <br/> 己卯 庚辰 辛己 壬午 癸未</td>
+<td align="center">申酉</td>
+</tr>
+<tr>
+<td align="center">甲申 乙酉 丙戌 丁亥 戊子 <br/> 己丑 庚寅 辛卯 壬辰 癸巳</td>
+<td align="center">午未</td>
+</tr>
+<tr>
+<td align="center">甲午 乙未 丙申 丁酉 戊戌 <br/> 己亥 庚子 辛丑 壬寅 癸丑</td>
+<td align="center">辰巳</td>
+</tr>
+<tr>
+<td align="center">甲辰 乙巳 丙午 丁未 戊申 <br/> 己酉 庚戌 辛亥 壬子 癸丑</td>
+<td align="center">寅卯</td>
+</tr>
+<tr>
+<td align="center">甲寅 乙卯 丙辰 丁巳 戊午 <br/> 己未 庚申 辛酉 壬戌 癸亥</td>
+<td align="center">子丑</td>
+</tr>
+</tbody></table>
+<ol>
+<li>比肩坐空亡： 手足同事皆无缘，不论男女婚姻都有困扰。</li>
+<li>劫财坐空亡： 无亲属相助，最明显是有虚花、浪费的征兆。</li>
+<li>食神坐空亡： 有福不会享，有疾病，如有合会者转吉。</li>
+<li>伤官坐空亡： 婚变，女命不利子女。</li>
+<li>偏财坐空亡： 不易得家长之财，与父无缘，交往除老婆其他女人不利，没有意外之财。</li>
+<li>正财坐空亡： 财难聚，不论男女，夫妻缘薄，迟婚，辛劳方可得财。</li>
+<li>七杀坐空亡： 自己缺乏自主权，却能得长辈资助，男命子息迟（生育子女迟）。</li>
+<li>正官坐空亡： 女命夫缘浅，不易从事公职。</li>
+<li>偏印坐空亡： 不宜于文艺，教育等事业</li>
+<li>正印坐空亡： 有才学，不宜名位之争，母亲系统有损。</li>
 </ol>
-<h3 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h3><ol>
-<li>为了函数调用后可以持续调用函数，函数调用后返回一个api对象保证链式调用</li>
-<li>将所有函数执行保存在一个数组当中</li>
-<li>从数组中弹出第一项并执行</li>
-<li>在每一次函数调用结束后再从数组中弹出第一项的函数执行</li>
-<li>直到数组项弹出undefind为止</li>
-</ol>
-<h3 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">lazyMan</span>(<span class="hljs-params">name</span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> theQueue = [];<br>    <span class="hljs-keyword">const</span> next = <span class="hljs-function">() =&gt;</span> &#123;<br>        <span class="hljs-keyword">const</span> fn = theQueue.shift();<br>        fn &amp;&amp; fn()<br>    &#125;;<br><br>    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> next(), <span class="hljs-number">0</span>);<br><br>    theQueue.push(<span class="hljs-function">() =&gt;</span> &#123;<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;!,my name is&quot;</span> + name);<br>        next();<br>    &#125;);<br><br>    <span class="hljs-keyword">const</span> api = &#123;<br>        <span class="hljs-function"><span class="hljs-title">sleep</span>(<span class="hljs-params">number</span>)</span> &#123;<br>            theQueue.push(<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;sleep after &quot;</span> + number + <span class="hljs-string">&quot;s&quot;</span>);<br>                next()<br>            &#125;, number * <span class="hljs-number">1000</span>));<br>            <span class="hljs-keyword">return</span> api;<br>        &#125;,<br>        <span class="hljs-function"><span class="hljs-title">eat</span>(<span class="hljs-params">content</span>)</span> &#123;<br>            theQueue.push(<span class="hljs-function">() =&gt;</span> &#123;<br>                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;eat &quot;</span> + content);<br>                next();<br>            &#125;);<br>            <span class="hljs-keyword">return</span> api;<br>        &#125;,<br>        <span class="hljs-function"><span class="hljs-title">sleepFirst</span>(<span class="hljs-params">number</span>)</span> &#123;<br>            theQueue.unshift(<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;sleep after&quot;</span> + number + <span class="hljs-string">&quot;s&quot;</span>);<br>                next()<br>            &#125;, number * <span class="hljs-number">1000</span>));<br>            <span class="hljs-keyword">return</span> api;<br>        &#125;,<br>    &#125;;<br><br>    <span class="hljs-keyword">return</span> api;<br>&#125;<br></code></pre></td></tr></table></figure>
 
     </div>
 </div>
@@ -322,19 +349,19 @@
 </script>
 <div class="Last-Next">
     
-    <a href="/2019/11/03/web-Lazy-loading-of-images/">
+    <a href="/2024/04/16/yj-dzcg/">
         <div class="last">
             <span>上一篇</span>
-            <p>图片懒加载</p>
+            <p>地支藏干</p>
         </div>
     </a>
     
 
     
-    <a href="/2019/04/05/js-foundation/">
+    <a href="/2024/04/16/yj-12zs/">
         <div class="next">
             <span>下一篇</span>
-            <p>javascript基础知识</p>
+            <p>十二长生</p>
         </div>
     </a>
     
